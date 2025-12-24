@@ -41,18 +41,21 @@ export async function POST(request: NextRequest): Promise<NextResponse<WaitlistR
         console.log("🔍 Base ID:", process.env.AIRTABLE_BASE_ID)
         console.log("🔍 Table name: Waitlist")
         
-        await base('Waitlist').create([
-          {
-            fields: {
-              'Email': validatedData.email,
-              'Prénom': validatedData.prenom,
-              'Canton': validatedData.canton,
-              'Source': validatedData.source || 'direct',
-              'Device': validatedData.device || '',
-              'Timestamp': validatedData.timestamp || new Date().toISOString(),
-            },
-          },
-        ])
+        // Build fields object, only including Device if it has a valid value
+        const fields: Record<string, any> = {
+          'Email': validatedData.email,
+          'Prénom': validatedData.prenom,
+          'Canton': validatedData.canton,
+          'Source': validatedData.source || 'direct',
+          'Timestamp': validatedData.timestamp || new Date().toISOString(),
+        }
+        
+        // Only add Device if it's a valid value (Desktop, Mobile, or Tablet)
+        if (validatedData.device && ['Desktop', 'Mobile', 'Tablet'].includes(validatedData.device)) {
+          fields['Device'] = validatedData.device
+        }
+        
+        await base('Waitlist').create([{ fields }])
         console.log("✅ Waitlist signup saved to Airtable:", validatedData.email)
       } catch (airtableError: any) {
         console.error("❌ Airtable error:", airtableError)

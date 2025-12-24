@@ -42,6 +42,18 @@ export function WaitlistFormSection() {
 
   const canton = watch("canton")
 
+  // Function to detect device type from user agent
+  const detectDeviceType = (): string => {
+    const ua = navigator.userAgent.toLowerCase()
+    if (/tablet|ipad|playbook|silk/i.test(ua)) {
+      return "Tablet"
+    }
+    if (/mobile|iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile/i.test(ua)) {
+      return "Mobile"
+    }
+    return "Desktop"
+  }
+
   const onSubmit = async (data: WaitlistFormData) => {
     setIsSubmitting(true)
     setSubmitStatus({ type: null, message: "" })
@@ -54,7 +66,7 @@ export function WaitlistFormSection() {
           ...data,
           timestamp: new Date().toISOString(),
           source: new URLSearchParams(window.location.search).get("utm_source") || "direct",
-          device: navigator.userAgent,
+          device: detectDeviceType(),
         }),
       })
 
