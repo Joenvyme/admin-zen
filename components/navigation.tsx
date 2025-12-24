@@ -43,7 +43,7 @@ export function Navigation() {
       <Link
         href="#"
         onClick={(e) => scrollToSection(e, "#")}
-        className="font-display text-xl sm:text-2xl italic text-noir hover:text-accent-red transition-colors"
+        className="font-display text-2xl sm:text-3xl italic text-noir hover:text-accent-red transition-colors"
       >
         AdminZen
       </Link>
