@@ -1,0 +1,148 @@
+"use client"
+
+import { Card, CardContent } from "@/components/ui/card"
+import Image from "next/image"
+import { useEffect, useRef, useState } from "react"
+import { Star } from "lucide-react"
+
+const testimonials = [
+  {
+    name: "Sophie M.",
+    location: "Genève",
+    text: "J'ai économisé CHF 800 sur mon assurance maladie cette année. AdminZen m'a alertée 10 jours avant la deadline. Inestimable !",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    name: "Marc L.",
+    location: "Zurich",
+    text: "Plus jamais de stress avec les impôts. L'IA détecte toutes les déductions possibles. Je recommande à 100%.",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    name: "Julie B.",
+    location: "Lausanne",
+    text: "J'ai annulé 3 abonnements que j'avais oubliés. CHF 45/mois économisés sans effort. Merci AdminZen !",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    name: "Thomas R.",
+    location: "Berne",
+    text: "Enfin un outil qui comprend la complexité administrative suisse. Ça change la vie !",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    name: "Camille D.",
+    location: "Bâle",
+    text: "Le mode pilote automatique est génial. Je n'ai plus à penser à rien, tout est géré pour moi.",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    name: "David K.",
+    location: "Fribourg",
+    text: "CHF 1'200 économisés en optimisant mon 3e pilier. L'IA a trouvé des déductions que je ne connaissais pas.",
+    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face",
+    rating: 5,
+  },
+]
+
+function TestimonialCard({
+  testimonial,
+  index,
+}: {
+  testimonial: typeof testimonials[0]
+  index: number
+}) {
+  const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.2 }
+    )
+
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <Card
+      ref={ref}
+      className={`bg-[#2A2A2A] border-gris/20 transition-all duration-300 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+      } hover:border-gris/30 hover:shadow-lg`}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      <CardContent className="p-5 sm:p-6">
+        {/* Rating */}
+        <div className="flex gap-1 mb-4">
+          {[...Array(testimonial.rating)].map((_, i) => (
+            <Star
+              key={i}
+              className="w-4 h-4 fill-jaune text-jaune"
+            />
+          ))}
+        </div>
+
+        {/* Text */}
+        <p className="text-gris-clair text-sm sm:text-base leading-relaxed mb-4 font-light">
+          &quot;{testimonial.text}&quot;
+        </p>
+
+        {/* Author */}
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full overflow-hidden bg-gris-clair flex-shrink-0 relative">
+            <Image
+              src={testimonial.avatar}
+              alt={testimonial.name}
+              width={40}
+              height={40}
+              className="object-cover"
+              loading="lazy"
+              unoptimized
+            />
+          </div>
+          <div>
+            <p className="text-blanc text-sm font-medium">{testimonial.name}</p>
+            <p className="text-gris-clair text-xs opacity-70">{testimonial.location}</p>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
+export function TestimonialsSection() {
+  return (
+    <section className="bg-[#2A2A2A] text-blanc py-20 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl italic mb-10 text-blanc">
+            Ce que disent nos utilisateurs
+          </h2>
+          <p className="text-gris-clair text-base sm:text-lg max-w-2xl mx-auto opacity-80 mt-6">
+            Rejoignez les centaines de personnes qui ont déjà simplifié leur vie administrative
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {testimonials.map((testimonial, index) => (
+            <TestimonialCard key={index} testimonial={testimonial} index={index} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+

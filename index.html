@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>AdminZen - Assistant IA pour votre administratif suisse | Économisez CHF 2'400/an</title>
+    <meta name="description" content="AdminZen gère automatiquement vos assurances, abonnements et impôts en Suisse. Économisez jusqu'à CHF 2'400/an et 10h/mois. Essai gratuit.">
+    <meta name="keywords" content="assistant administratif suisse, gestion assurance maladie, changement assurance, IA suisse, fintech suisse">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="AdminZen - Oubliez l'administratif suisse">
+    <meta property="og:description" content="L'IA qui gère vos assurances, abonnements et impôts. CHF 2'400 économisés/an.">
+    <meta property="og:image" content="https://adminzen.ch/og-image.jpg">
+    <meta property="og:url" content="https://adminzen.ch">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AdminZen - Assistant administratif IA suisse">
+    <meta name="twitter:description" content="Économisez CHF 2'400/an sans effort">
+    <meta name="twitter:image" content="https://adminzen.ch/twitter-image.jpg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AdminZen",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "14.90",
+        "priceCurrency": "CHF"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "428"
+      }
+    }
+    </script>
+    
+    <style>
+        :root {
+            --noir: #0A0A0A;
+            --blanc: #FAFAFA;
+            --gris-clair: #E8E8E8;
+            --gris: #6B6B6B;
+            --accent: #D63031;
+            --accent-hover: #B82829;
+            --vert: #00B894;
+            --jaune: #FDCB6E;
+            
+            --font-display: 'Instrument Serif', serif;
+            --font-body: 'DM Sans', sans-serif;
+            
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--blanc);
+            color: var(--noir);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Skip to content link (accessibilité) */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--accent);
+            color: var(--blanc);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            z-index: 10000;
+            font-weight: 700;
+            border-radius: 0 0 4px 0;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Scroll progress indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--vert));
+            z-index: 10001;
+            transition: width 0.1s ease-out;
+            box-shadow: 0 2px 10px rgba(214, 48, 49, 0.3);
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(250, 250, 250, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(10, 10, 10, 0.05);
+            transition: var(--transition);
+        }
+        
+        nav.scrolled {
+            background: rgba(250, 250, 250, 0.98);
+            box-shadow: 0 2px 20px rgba(10, 10, 10, 0.05);
+        }
+        
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: normal;
+            font-style: italic;
+            color: var(--noir);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            transition: var(--transition);
+        }
+        
+        .logo:hover {
+            color: var(--accent);
+        }
+        
+        .nav-cta {
+            background: var(--noir);
+            color: var(--blanc);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            border: 2px solid var(--noir);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .nav-cta:hover {
+            background: var(--blanc);
+            color: var(--noir);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(10, 10, 10, 0.15);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(214, 48, 49, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 184, 148, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .kicker {
+            display: inline-block;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            line-height: 1.1;
+            font-weight: normal;
+            margin-bottom: 1.5rem;
+            color: var(--noir);
+            max-width: 900px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+        
+        h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--gris);
+            max-width: 600px;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+        
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.8s forwards;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: var(--blanc);
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            min-height: 44px;
+            text-align: center;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(214, 48, 49, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--noir);
+            padding: 1.2rem 2.5rem;
+            border: 2px solid var(--noir);
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            min-height: 44px;
+            text-align: center;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--noir);
+            color: var(--blanc);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(10, 10, 10, 0.15);
+        }
+        
+        .social-proof {
+            margin-top: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 1s forwards;
+            flex-wrap: wrap;
+        }
+        
+        .avatars {
+            display: flex;
+            margin-right: 1rem;
+        }
+        
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--blanc);
+            margin-left: -12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .avatar:first-child { margin-left: 0; }
+        .avatar:nth-child(2) { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .avatar:nth-child(3) { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .avatar:nth-child(4) { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        
+        .social-proof-text {
+            font-size: 0.95rem;
+            color: var(--gris);
+        }
+        
+        .social-proof-text strong {
+            color: var(--noir);
+            font-weight: 700;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: var(--noir);
+            color: var(--blanc);
+            padding: 4rem 2rem;
+        }
+        
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+        
+        .stat-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+            animation: statPop 0.6s ease-out;
+        }
+        
+        @keyframes statPop {
+            0% {
+                transform: translateY(20px) scale(0.9);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(-5px) scale(1.05);
+            }
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-style: italic;
+            color: var(--vert);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gris-clair);
+        }
+        
+        /* Pain Points Section */
+        .pain-points {
+            padding: 6rem 2rem;
+            background: var(--gris-clair);
+        }
+        
+        .section-header {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+        
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            font-weight: normal;
+            font-style: italic;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--gris);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .pain-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .pain-card {
+            background: var(--blanc);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .pain-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .pain-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(10, 10, 10, 0.15);
+            border-left-width: 6px;
+        }
+        
+        .pain-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .pain-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .pain-card p {
+            color: var(--gris);
+            line-height: 1.7;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 6rem 2rem;
+            background: var(--blanc);
+        }
+        
+        .steps {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            align-items: flex-start;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: var(--transition);
+        }
+        
+        .step.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .step:nth-child(even) {
+            flex-direction: row-reverse;
+            transform: translateX(50px);
+        }
+        
+        .step:nth-child(even).visible {
+            transform: translateX(0);
+        }
+        
+        .step-number {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            color: var(--blanc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-style: italic;
+            font-weight: bold;
+        }
+        
+        .step-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .step-content p {
+            color: var(--gris);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        /* Pricing */
+        .pricing {
+            padding: 6rem 2rem;
+            background: var(--noir);
+            color: var(--blanc);
+        }
+        
+        .pricing-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: var(--blanc);
+            color: var(--noir);
+            border-radius: 12px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+        
+        .pricing-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+        }
+        
+        .pricing-badge {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--vert);
+            color: var(--blanc);
+            padding: 0.5rem 3rem;
+            transform: rotate(45deg);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .pricing-header h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .price {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price-currency {
+            font-size: 2rem;
+            color: var(--gris);
+        }
+        
+        .price-period {
+            color: var(--gris);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .price-period s {
+            color: var(--gris);
+            margin-left: 0.5rem;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gris-clair);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--vert);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* FAQ */
+        .faq {
+            padding: 6rem 2rem;
+            background: var(--gris-clair);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--blanc);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+        
+        .faq-item:hover {
+            border-color: var(--accent);
+        }
+        
+        .faq-question {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            user-select: none;
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            padding: 0 2rem;
+            color: var(--gris);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 2rem 1.5rem;
+        }
+        
+        .faq-answer p {
+            line-height: 1.7;
+        }
+        
+        /* CTA Section */
+        .final-cta {
+            padding: 6rem 2rem;
+            background: var(--accent);
+            color: var(--blanc);
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            font-weight: normal;
+            font-style: italic;
+        }
+        
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .final-cta .btn-primary {
+            background: var(--blanc);
+            color: var(--accent);
+        }
+        
+        .final-cta .btn-primary:hover {
+            background: var(--noir);
+            color: var(--blanc);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--noir);
+            color: var(--gris);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        footer a {
+            color: var(--blanc);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        footer a:hover {
+            color: var(--accent);
+        }
+        
+        /* Form Styles */
+        .waitlist-form {
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--gris-clair);
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            transition: var(--transition);
+            background: var(--blanc);
+            color: var(--noir);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--blanc);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+        }
+        
+        .form-group input::placeholder {
+            color: var(--gris);
+        }
+        
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 6px;
+            display: none;
+        }
+        
+        .form-message.success {
+            background: rgba(0, 184, 148, 0.2);
+            color: var(--blanc);
+            border: 2px solid var(--vert);
+            display: block;
+        }
+        
+        .form-message.error {
+            background: rgba(214, 48, 49, 0.2);
+            color: var(--blanc);
+            border: 2px solid var(--accent);
+            display: block;
+        }
+        
+        .form-loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        
+        .form-group input:invalid:not(:placeholder-shown),
+        .form-group select:invalid:not(:placeholder-shown) {
+            border-color: var(--accent);
+            background: rgba(214, 48, 49, 0.05);
+        }
+        
+        .form-group input:valid:not(:placeholder-shown),
+        .form-group select:valid:not(:placeholder-shown) {
+            border-color: var(--vert);
+        }
+        
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--noir);
+            color: var(--blanc);
+            padding: 1.5rem 2rem;
+            z-index: 10000;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 -4px 20px rgba(10, 10, 10, 0.2);
+        }
+        
+        .cookie-banner.show {
+            transform: translateY(0);
+        }
+        
+        .cookie-banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .cookie-banner-text {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .cookie-banner-text a {
+            color: var(--vert);
+            text-decoration: underline;
+        }
+        
+        .cookie-banner-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .cookie-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            min-height: 44px;
+        }
+        
+        .cookie-btn-accept {
+            background: var(--accent);
+            color: var(--blanc);
+        }
+        
+        .cookie-btn-accept:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+        
+        .cookie-btn-decline {
+            background: transparent;
+            color: var(--blanc);
+            border: 2px solid var(--gris);
+        }
+        
+        .cookie-btn-decline:hover {
+            background: var(--gris);
+        }
+        
+        /* Focus states améliorés */
+        *:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+        
+        /* Loading spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--blanc);
+            animation: spin 0.8s linear infinite;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Pulse animation pour CTA */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        .btn-primary.pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        /* Stagger animation pour pain cards */
+        .pain-card:nth-child(1) { transition-delay: 0.1s; }
+        .pain-card:nth-child(2) { transition-delay: 0.2s; }
+        .pain-card:nth-child(3) { transition-delay: 0.3s; }
+        .pain-card:nth-child(4) { transition-delay: 0.4s; }
+        .pain-card:nth-child(5) { transition-delay: 0.5s; }
+        .pain-card:nth-child(6) { transition-delay: 0.6s; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+            
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+            
+            .hero-cta-group {
+                flex-direction: column;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+            }
+            
+            .step {
+                flex-direction: column !important;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin: 0 auto 1rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .pain-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cookie-banner-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .cookie-banner-actions {
+                width: 100%;
+            }
+            
+            .cookie-btn {
+                flex: 1;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .pain-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .pain-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to content (accessibilité) -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    
+    <!-- Scroll progress indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-banner-content">
+            <div class="cookie-banner-text">
+                <p>
+                    🍪 Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic. 
+                    En continuant, vous acceptez notre utilisation des cookies. 
+                    <a href="#privacy">En savoir plus</a>
+                </p>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn cookie-btn-accept" id="acceptCookies">Accepter</button>
+                <button class="cookie-btn cookie-btn-decline" id="declineCookies">Refuser</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">AdminZen</a>
+        <a href="#waitlist" class="nav-cta">Accès anticipé</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <main id="main-content">
+    <section class="hero">
+        <div class="hero-content">
+            <span class="kicker">L'Assistant IA Suisse</span>
+            <h1>Oubliez l'administratif. <em>Vivez.</em></h1>
+            <p class="hero-subtitle">
+                AdminZen gère vos assurances, abonnements et déclarations d'impôts automatiquement. 
+                Économisez jusqu'à CHF 2'400/an sans lever le petit doigt.
+            </p>
+            <div class="hero-cta-group">
+                <a href="#waitlist" class="btn-primary" data-cta="hero_primary">Rejoindre la liste d'attente</a>
+                <a href="#comment" class="btn-secondary" data-cta="hero_secondary">Comment ça marche ?</a>
+            </div>
+            <div class="social-proof">
+                <div class="avatars">
+                    <div class="avatar"></div>
+                    <div class="avatar"></div>
+                    <div class="avatar"></div>
+                    <div class="avatar"></div>
+                </div>
+                <p class="social-proof-text">
+                    <strong id="waitlist-count">428</strong> personnes sur liste d'attente
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-number" data-target="2400">CHF 0</span>
+                <span class="stat-label">Économies/an</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="10">0</span>
+                <span class="stat-label">Temps gagné/mois</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="0">0</span>
+                <span class="stat-label">Deadlines manquées</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section class="pain-points">
+        <div class="section-header">
+            <h2>Vous reconnaissez ces situations ?</h2>
+            <p>La complexité administrative suisse n'est pas une fatalité</p>
+        </div>
+        <div class="pain-grid">
+            <div class="pain-card">
+                <div class="pain-icon">📅</div>
+                <h3>30 novembre encore raté</h3>
+                <p>Chaque année, vous ratez la deadline de changement d'assurance maladie et payez CHF 400 de trop. Encore.</p>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">😰</div>
+                <h3>Déclaration d'impôts : la torture</h3>
+                <p>3 piliers, déductions cantonales, formulaires en allemand... Vous procrastinez jusqu'à la dernière seconde.</p>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">📧</div>
+                <h3>Emails perdus dans le chaos</h3>
+                <p>Votre police d'assurance expire dans 2 semaines mais l'email est noyé entre 500 newsletters non lues.</p>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">💸</div>
+                <h3>Abonnements oubliés</h3>
+                <p>Netflix, Spotify, Swisscom, Salt, la salle de sport que vous n'utilisez plus... CHF 150/mois qui partent en fumée.</p>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">🤯</div>
+                <h3>Trop de paperasse</h3>
+                <p>Entre Suva, LAMal, LPP, AVS... vous ne comprenez rien et vous n'avez pas le temps de chercher.</p>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">😓</div>
+                <h3>Zero temps libre</h3>
+                <p>Le week-end, vous devriez profiter. Pas passer 3h à comparer des assurances sur Comparis.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="comment" class="how-it-works">
+        <div class="section-header">
+            <h2>Comment AdminZen vous simplifie la vie</h2>
+            <p>3 étapes. Zéro effort de votre part.</p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Connectez vos emails (sécurisé)</h3>
+                    <p>
+                        En 2 clics, AdminZen accède à vos emails pour détecter automatiquement 
+                        vos polices d'assurance, contrats d'abonnements et documents fiscaux. 
+                        Chiffrement de bout en bout, données hébergées en Suisse. Conforme RGPD/LPD.
+                    </p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>L'IA analyse et surveille pour vous</h3>
+                    <p>
+                        Notre intelligence artificielle scanne le marché suisse 24/7, compare les prix, 
+                        détecte les opportunités d'économies et vous alerte <strong>10 jours avant</strong> 
+                        chaque deadline importante. Plus jamais de 30 novembre manqué.
+                    </p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Validez en 1 clic (ou on s'en occupe)</h3>
+                    <p>
+                        AdminZen vous propose les meilleures options avec calculs précis. 
+                        Validez en un clic, et on génère même vos lettres de résiliation pré-remplies. 
+                        Ou optez pour le mode "pilote automatique" : on gère tout.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+        <div class="section-header">
+            <h2 style="color: var(--blanc);">Accès anticipé à prix réduit</h2>
+            <p style="color: var(--gris-clair);">Rejoignez les 428 early adopters et profitez d'un tarif à vie</p>
+        </div>
+        <div class="pricing-container">
+            <div class="pricing-badge">-40% à vie</div>
+            <div class="pricing-header">
+                <h3>Early Access</h3>
+                <div class="price">
+                    <span class="price-currency">CHF</span> 14<span style="font-size: 2rem;">.90</span>
+                </div>
+                <p class="price-period">par mois · <s>CHF 24.90</s></p>
+            </div>
+            <ul class="pricing-features">
+                <li>Connexion emails sécurisée</li>
+                <li>Analyse illimitée de vos documents</li>
+                <li>Alertes avant chaque deadline</li>
+                <li>Recommandations personnalisées</li>
+                <li>Lettres de résiliation automatiques</li>
+                <li>Support prioritaire 🇨🇭</li>
+                <li>Garantie satisfait ou remboursé 60 jours</li>
+            </ul>
+            <a href="#waitlist" class="btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;" data-cta="pricing">
+                Réserver ma place
+            </a>
+            <p style="text-align: center; margin-top: 1rem; font-size: 0.85rem; color: var(--gris);">
+                ⚡ Seulement 50 places restantes à ce tarif
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="section-header">
+            <h2>Questions fréquentes</h2>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Mes données sont-elles en sécurité ?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        Absolument. AdminZen utilise un chiffrement de bout en bout (AES-256), 
+                        toutes vos données sont hébergées en Suisse (serveurs à Zurich), 
+                        et nous sommes 100% conformes au RGPD et à la LPD suisse. 
+                        Nous n'avons accès qu'aux emails contenant des mots-clés administratifs 
+                        (assurance, facture, contrat), jamais à vos emails personnels.
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Comment AdminZen peut-il vraiment me faire économiser CHF 2'400 ?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        C'est la moyenne constatée sur nos bêta-testeurs : CHF 400-800/an sur l'assurance maladie 
+                        (en changeant de caisse + optimisant franchise), CHF 600-1'200/an en annulant les 
+                        abonnements inutilisés, et CHF 500-1'000 en optimisant les déductions fiscales 
+                        (3e pilier, frais pro). Même si vous n'économisez "que" CHF 1'000, 
+                        AdminZen se rembourse 67× par an.
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>C'est quoi la différence avec Comparis ou Bonus.ch ?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        Comparis vous demande de comparer manuellement. AdminZen fait tout automatiquement : 
+                        détecte vos contrats actuels dans vos emails, compare en continu, 
+                        vous alerte au bon moment, et prépare même vos lettres de résiliation. 
+                        Vous passez de 3h de recherche à 1 clic de validation.
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Je suis nul en administratif, c'est vraiment pour moi ?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        C'est EXACTEMENT pour vous ! AdminZen a été conçu pour les gens qui détestent 
+                        l'administratif. Si vous comprenez déjà tout le système suisse, vous n'avez pas besoin 
+                        de nous. Mais si les termes "LAMal", "LPP" ou "déduction 3a" vous donnent des sueurs froides, 
+                        on est fait pour s'entendre.
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Ça marche dans tous les cantons ?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        Oui ! AdminZen fonctionne dans les 26 cantons suisses. L'IA connaît les spécificités 
+                        fiscales de chaque canton (taux, déductions, formulaires) et s'adapte automatiquement 
+                        à votre situation. Que vous soyez à Genève, Zurich, Fribourg ou au Tessin, 
+                        on a tout ce qu'il faut.
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Que se passe-t-il après la liste d'attente ?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        Nous lançons la version bêta en mars 2026 avec les 500 premiers inscrits. 
+                        Vous recevrez un email avec vos accès, un onboarding personnalisé (15 min), 
+                        et votre tarif réduit à CHF 14.90/mois sera garanti À VIE (même quand on passera à 24.90). 
+                        Vous pouvez annuler à tout moment, pas d'engagement.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist Form -->
+    <section id="waitlist" class="final-cta">
+        <h2>Prêt à reprendre le contrôle ?</h2>
+        <p>Rejoignez les 428 personnes qui ne veulent plus jamais perdre de temps avec l'administratif</p>
+        
+        <form class="waitlist-form" id="waitlistForm" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+                <input type="email" name="email" id="email" placeholder="Votre email" required autocomplete="email">
+            </div>
+            <div class="form-group">
+                <input type="text" name="prenom" id="prenom" placeholder="Prénom" required autocomplete="given-name">
+            </div>
+            <div class="form-group">
+                <select name="canton" id="canton" required>
+                    <option value="">Canton de résidence</option>
+                    <option value="AG">Argovie</option>
+                    <option value="AI">Appenzell Rhodes-Intérieures</option>
+                    <option value="AR">Appenzell Rhodes-Extérieures</option>
+                    <option value="BE">Berne</option>
+                    <option value="BL">Bâle-Campagne</option>
+                    <option value="BS">Bâle-Ville</option>
+                    <option value="FR">Fribourg</option>
+                    <option value="GE">Genève</option>
+                    <option value="GL">Glaris</option>
+                    <option value="GR">Grisons</option>
+                    <option value="JU">Jura</option>
+                    <option value="LU">Lucerne</option>
+                    <option value="NE">Neuchâtel</option>
+                    <option value="NW">Nidwald</option>
+                    <option value="OW">Obwald</option>
+                    <option value="SG">Saint-Gall</option>
+                    <option value="SH">Schaffhouse</option>
+                    <option value="SO">Soleure</option>
+                    <option value="SZ">Schwyz</option>
+                    <option value="TG">Thurgovie</option>
+                    <option value="TI">Tessin</option>
+                    <option value="UR">Uri</option>
+                    <option value="VD">Vaud</option>
+                    <option value="VS">Valais</option>
+                    <option value="ZG">Zoug</option>
+                    <option value="ZH">Zurich</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-primary" style="width: 100%; font-size: 1.2rem;" data-cta="final">
+                🎉 Réserver ma place (50 restantes)
+            </button>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">
+                Pas de carte bancaire requise · Vous recevrez un email de confirmation
+            </p>
+            <div class="form-message" id="formMessage"></div>
+        </form>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 AdminZen · Made with ❤️ in Switzerland</p>
+        <p style="margin-top: 1rem;">
+            <a href="#privacy">Politique de confidentialité</a> · 
+            <a href="#cgu">CGU</a> · 
+            <a href="#contact">Contact</a>
+        </p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+            Hébergé en Suisse 🇨🇭 · Conforme RGPD/LPD
+        </p>
+    </footer>
+
+    <script>
+        // Cookie Banner
+        const cookieBanner = document.getElementById('cookieBanner');
+        const acceptCookies = document.getElementById('acceptCookies');
+        const declineCookies = document.getElementById('declineCookies');
+        
+        // Vérifier si le consentement existe déjà
+        const cookieConsent = localStorage.getItem('cookieConsent');
+        if (!cookieConsent) {
+            setTimeout(() => {
+                cookieBanner.classList.add('show');
+            }, 1000);
+        }
+        
+        acceptCookies.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'accepted');
+            cookieBanner.classList.remove('show');
+            // Initialiser Analytics ici si nécessaire
+            if (typeof gtag !== 'undefined') {
+                gtag('consent', 'update', {
+                    'analytics_storage': 'granted'
+                });
+            }
+        });
+        
+        declineCookies.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'declined');
+            cookieBanner.classList.remove('show');
+        });
+        
+        // Scroll progress indicator
+        const scrollProgress = document.getElementById('scrollProgress');
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        });
+        
+        // Navigation scroll effect
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.stat-item, .pain-card, .step').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target, prefix = '', suffix = '') {
+            const duration = 2000;
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = prefix + target + suffix;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = prefix + Math.floor(current) + suffix;
+                }
+            }, 16);
+        }
+
+        // Observe stats for counter animation
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    entry.target.classList.add('counted');
+                    const numberEl = entry.target.querySelector('.stat-number');
+                    const target = parseInt(numberEl.getAttribute('data-target'));
+                    const text = numberEl.textContent;
+                    
+                    if (text.includes('CHF')) {
+                        animateCounter(numberEl, target, 'CHF ');
+                    } else if (text.includes('h')) {
+                        animateCounter(numberEl, target, '', 'h');
+                    } else {
+                        animateCounter(numberEl, target);
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-item').forEach(el => {
+            statsObserver.observe(el);
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const wasActive = item.classList.contains('active');
+                
+                // Track FAQ expand
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'faq_expand', {
+                        'question': question.querySelector('span').textContent
+                    });
+                }
+                
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+                
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const offset = 80; // Navbar height
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // CTA Click Tracking
+        document.querySelectorAll('[data-cta]').forEach(cta => {
+            cta.addEventListener('click', function() {
+                const ctaType = this.getAttribute('data-cta');
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'cta_click', {
+                        'cta_type': ctaType
+                    });
+                }
+            });
+        });
+        
+        // Ajouter pulse animation au CTA principal après 3 secondes
+        setTimeout(() => {
+            const primaryCTA = document.querySelector('[data-cta="hero_primary"]');
+            if (primaryCTA) {
+                primaryCTA.classList.add('pulse');
+            }
+        }, 3000);
+        
+        // Retirer pulse au hover
+        document.querySelectorAll('[data-cta="hero_primary"]').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                btn.classList.remove('pulse');
+            });
+        });
+
+        // Scroll depth tracking
+        let scrollDepths = [25, 50, 75, 100];
+        let trackedDepths = new Set();
+        
+        window.addEventListener('scroll', () => {
+            const scrollPercent = Math.round(
+                (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+            );
+            
+            scrollDepths.forEach(depth => {
+                if (scrollPercent >= depth && !trackedDepths.has(depth)) {
+                    trackedDepths.add(depth);
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'scroll_depth', {
+                            'depth': depth
+                        });
+                    }
+                }
+            });
+        });
+
+        // Form submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+            const messageEl = document.getElementById('formMessage');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            
+            // Track form start (if first interaction)
+            if (!form.classList.contains('form-started')) {
+                form.classList.add('form-started');
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'form_start');
+                }
+            }
+            
+            // Validate email
+            const email = formData.get('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                messageEl.textContent = 'Veuillez entrer une adresse email valide.';
+                messageEl.className = 'form-message error';
+                document.getElementById('email').focus();
+                return;
+            }
+            
+            // Validate prénom
+            const prenom = formData.get('prenom').trim();
+            if (prenom.length < 2) {
+                messageEl.textContent = 'Veuillez entrer un prénom valide (minimum 2 caractères).';
+                messageEl.className = 'form-message error';
+                document.getElementById('prenom').focus();
+                return;
+            }
+            
+            // Validate canton
+            const canton = formData.get('canton');
+            if (!canton) {
+                messageEl.textContent = 'Veuillez sélectionner votre canton de résidence.';
+                messageEl.className = 'form-message error';
+                document.getElementById('canton').focus();
+                return;
+            }
+            
+            // Show loading state
+            form.classList.add('form-loading');
+            submitBtn.disabled = true;
+            const originalText = submitBtn.textContent;
+            submitBtn.innerHTML = '<span class="spinner"></span>Envoi en cours...';
+            
+            // Track form submit
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'form_submit');
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL'
+                });
+            }
+            
+            // Simulate API call (replace with actual endpoint)
+            setTimeout(() => {
+                // Here you would typically send to your backend:
+                // fetch('your-api-endpoint', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify({
+                //         email: formData.get('email'),
+                //         prenom: formData.get('prenom'),
+                //         canton: formData.get('canton'),
+                //         timestamp: new Date().toISOString(),
+                //         source: new URLSearchParams(window.location.search).get('utm_source') || 'direct',
+                //         device: navigator.userAgent
+                //     })
+                // })
+                
+                // Success message
+                messageEl.textContent = '🎉 Félicitations ! Vous êtes sur la liste d\'attente.\n\nVous recevrez un email de confirmation dans quelques minutes avec tous les détails.';
+                messageEl.className = 'form-message success';
+                
+                // Reset form
+                form.reset();
+                form.classList.remove('form-loading');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '🎉 Réserver ma place (50 restantes)';
+                
+                // Update waitlist count
+                const countEl = document.getElementById('waitlist-count');
+                let currentCount = parseInt(countEl.textContent);
+                countEl.textContent = currentCount + 1;
+                
+                // Scroll to message
+                messageEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 1500);
+        }
+
+        // Dynamic social proof counter (optional)
+        let waitlistCount = 428;
+        setInterval(() => {
+            if (Math.random() > 0.7) { // 30% chance every interval
+                waitlistCount++;
+                const countElements = document.querySelectorAll('#waitlist-count');
+                countElements.forEach(el => {
+                    el.textContent = waitlistCount;
+                });
+            }
+        }, 30000); // Check every 30 seconds
+
+        // Page view tracking (when analytics is loaded)
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view');
+        }
+    </script>
+
+    <!-- Google Analytics 4 (replace with your ID) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+
+    <!-- Meta Pixel (if using Facebook/Instagram ads) -->
+    <!--
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'YOUR_PIXEL_ID');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript>
+    -->
+</body>
+</html>
