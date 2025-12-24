@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { z } from "zod"
+import Airtable from "airtable"
 import type { WaitlistFormData, WaitlistResponse } from "@/types"
 
 const waitlistSchema = z.object({
@@ -11,6 +12,11 @@ const waitlistSchema = z.object({
   timestamp: z.string().optional(),
 })
 
+// Initialize Airtable
+const base = process.env.AIRTABLE_API_KEY && process.env.AIRTABLE_BASE_ID
+  ? new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(process.env.AIRTABLE_BASE_ID)
+  : null
+
 export async function POST(request: NextRequest): Promise<NextResponse<WaitlistResponse>> {
   try {
     const body = await request.json()
@@ -18,15 +24,29 @@ export async function POST(request: NextRequest): Promise<NextResponse<WaitlistR
     // Validate data
     const validatedData = waitlistSchema.parse(body)
 
-    // TODO: Save to your database (Supabase, Airtable, Google Sheets, etc.)
-    // Example with console.log for now - replace with your backend
-    console.log("New waitlist signup:", validatedData)
-
-    // Example: Save to a database
-    // await saveToDatabase(validatedData)
-
-    // Example: Send confirmation email
-    // await sendConfirmationEmail(validatedData.email, validatedData.prenom)
+    // Save to Airtable if configured
+    if (base) {
+      try {
+        await base('Waitlist').create([
+          {
+            fields: {
+              'Email': validatedData.email,
+              'Prénom': validatedData.prenom,
+              'Canton': validatedData.canton,
+              'Source': validatedData.source || 'direct',
+              'Device': validatedData.device || '',
+              'Timestamp': validatedData.timestamp || new Date().toISOString(),
+            },
+          },
+        ])
+        console.log("✅ Waitlist signup saved to Airtable:", validatedData.email)
+      } catch (airtableError) {
+        console.error("❌ Airtable error:", airtableError)
+        // Continue even if Airtable fails, so user still gets success message
+      }
+    } else {
+      console.log("⚠️ Airtable not configured. Signup logged:", validatedData)
+    }
 
     return NextResponse.json(
       {
