@@ -1,7 +1,16 @@
 import { NextRequest, NextResponse } from "next/server"
 import { z } from "zod"
-import Airtable from "airtable"
 import type { WaitlistFormData, WaitlistResponse } from "@/types"
+
+// Dynamic import to avoid build errors if package not installed
+let Airtable: any = null
+if (typeof window === 'undefined') {
+  try {
+    Airtable = require('airtable')
+  } catch (e) {
+    console.warn('Airtable package not installed')
+  }
+}
 
 const waitlistSchema = z.object({
   email: z.string().email(),
@@ -27,6 +36,11 @@ export async function POST(request: NextRequest): Promise<NextResponse<WaitlistR
     // Save to Airtable if configured
     if (base) {
       try {
+        // Log for debugging
+        console.log("🔍 Attempting to save to Airtable...")
+        console.log("🔍 Base ID:", process.env.AIRTABLE_BASE_ID)
+        console.log("🔍 Table name: Waitlist")
+        
         await base('Waitlist').create([
           {
             fields: {
@@ -40,12 +54,21 @@ export async function POST(request: NextRequest): Promise<NextResponse<WaitlistR
           },
         ])
         console.log("✅ Waitlist signup saved to Airtable:", validatedData.email)
-      } catch (airtableError) {
+      } catch (airtableError: any) {
         console.error("❌ Airtable error:", airtableError)
+        console.error("❌ Error details:", {
+          error: airtableError.error,
+          message: airtableError.message,
+          statusCode: airtableError.statusCode,
+        })
         // Continue even if Airtable fails, so user still gets success message
       }
     } else {
-      console.log("⚠️ Airtable not configured. Signup logged:", validatedData)
+      console.log("⚠️ Airtable not configured. Missing:", {
+        hasApiKey: !!process.env.AIRTABLE_API_KEY,
+        hasBaseId: !!process.env.AIRTABLE_BASE_ID,
+      })
+      console.log("⚠️ Signup logged:", validatedData)
     }
 
     return NextResponse.json(
