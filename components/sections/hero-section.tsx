@@ -37,7 +37,7 @@ export function HeroSection() {
           <span className="inline-block text-xs sm:text-sm md:text-base uppercase tracking-wider text-accent-red font-bold mb-4 sm:mb-6 md:mb-10 animate-fade-in-up">
             L&apos;Assistant IA Suisse
           </span>
-          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] sm:leading-tight mb-4 sm:mb-6 md:mb-10 animate-fade-in-up [animation-delay:200ms]">
+          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-[1.1] sm:leading-tight mb-4 sm:mb-6 md:mb-10 animate-fade-in-up [animation-delay:200ms]">
             Oubliez l&apos;administratif. <em className="italic text-accent-red">Vivez.</em>
           </h1>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gris max-w-2xl mb-8 sm:mb-12 md:mb-16 lg:mb-20 leading-relaxed font-extralight animate-fade-in-up [animation-delay:400ms]" style={{ fontWeight: 200 }}>

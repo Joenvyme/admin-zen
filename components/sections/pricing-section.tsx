@@ -19,7 +19,7 @@ export function PricingSection() {
     <section className="bg-[#2A2A2A] text-blanc py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 sm:mb-12 md:mb-16 lg:mb-20">
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl italic mb-4 sm:mb-6 md:mb-10 text-blanc">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic mb-4 sm:mb-6 md:mb-10 text-blanc">
             Accès anticipé à prix réduit
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gris-clair max-w-2xl mx-auto mt-4 sm:mt-6">

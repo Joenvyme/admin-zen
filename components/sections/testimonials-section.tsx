@@ -129,7 +129,7 @@ export function TestimonialsSection() {
     <section className="bg-[#2A2A2A] text-blanc py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl italic mb-4 sm:mb-6 md:mb-10 text-blanc">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic mb-4 sm:mb-6 md:mb-10 text-blanc">
             Ce que disent nos utilisateurs
           </h2>
           <p className="text-gris-clair text-sm sm:text-base md:text-lg max-w-2xl mx-auto opacity-80 mt-4 sm:mt-6">
