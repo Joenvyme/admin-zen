@@ -99,22 +99,22 @@ function AdvantageCard({
       )}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <CardContent className="p-6">
-        <div className="flex items-start gap-4">
+      <CardContent className="p-4 sm:p-5 md:p-6">
+        <div className="flex items-start gap-3 sm:gap-4">
           {/* Icon */}
           <div
             className={cn(
-              "w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300",
+              "w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300",
               advantage.bgColor,
               isHovered && "scale-110"
             )}
           >
-            <Icon className={cn("w-6 h-6", advantage.color)} />
+            <Icon className={cn("w-5 h-5 sm:w-6 sm:h-6", advantage.color)} />
           </div>
 
           {/* Content */}
           <div className="flex-1">
-            <h3 className="text-lg font-semibold mb-4 text-noir group-hover:text-accent-red transition-colors duration-300">
+            <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 md:mb-4 text-noir group-hover:text-accent-red transition-colors duration-300">
               {advantage.title}
             </h3>
             <p className="text-gris text-sm leading-relaxed">
@@ -129,17 +129,17 @@ function AdvantageCard({
 
 export function FeaturesSection() {
   return (
-    <section className="bg-blanc py-20 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8">
+    <section className="bg-blanc py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl italic mb-10">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl italic mb-4 sm:mb-6 md:mb-10">
             Vos avantages avec AdminZen
           </h2>
-          <p className="text-lg sm:text-xl text-gris max-w-2xl mx-auto mt-6">
+          <p className="text-base sm:text-lg md:text-xl text-gris max-w-2xl mx-auto mt-4 sm:mt-6">
             Des bénéfices concrets pour simplifier votre quotidien administratif
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
           {advantages.map((advantage, index) => (
             <AdvantageCard key={index} advantage={advantage} index={index} />
           ))}

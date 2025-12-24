@@ -31,9 +31,16 @@
   * {
     @apply border-border;
   }
+  html {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
   body {
     @apply bg-blanc text-noir;
     font-family: var(--font-body);
+    overflow-x: hidden;
+    max-width: 100vw;
+    position: relative;
   }
 }
 

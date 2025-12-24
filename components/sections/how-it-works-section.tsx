@@ -54,7 +54,7 @@ function Step({ step, index }: { step: typeof steps[0]; index: number }) {
       onMouseLeave={() => setIsHovered(false)}
       className={`group relative flex flex-col ${
         isEven ? "md:flex-row-reverse" : "md:flex-row"
-      } gap-4 md:gap-6 items-center md:items-start mb-14 md:mb-16 last:mb-0 transition-all duration-300 ${
+      } gap-4 md:gap-6 items-center md:items-start mb-10 sm:mb-12 md:mb-14 lg:mb-16 last:mb-0 transition-all duration-300 ${
         isVisible
           ? "opacity-100 translate-x-0"
           : `opacity-0 ${isEven ? "translate-x-8" : "-translate-x-8"}`
@@ -71,7 +71,7 @@ function Step({ step, index }: { step: typeof steps[0]; index: number }) {
       {/* Number circle - smaller and more discrete */}
       <div className="relative flex-shrink-0">
         <div
-          className={`w-14 h-14 rounded-full bg-accent-red text-blanc flex items-center justify-center font-display text-2xl italic font-semibold shadow-sm transition-all duration-300 ${
+          className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-accent-red text-blanc flex items-center justify-center font-display text-xl sm:text-2xl italic font-semibold shadow-sm transition-all duration-300 ${
             isHovered
               ? "scale-105 shadow-md"
               : "group-hover:scale-102"
@@ -83,17 +83,17 @@ function Step({ step, index }: { step: typeof steps[0]; index: number }) {
 
       {/* Content card - more discrete */}
       <div
-        className={`flex-1 bg-gris-clair rounded-lg p-5 sm:p-6 shadow-sm transition-all duration-300 ${
+        className={`flex-1 bg-gris-clair rounded-lg p-4 sm:p-5 md:p-6 shadow-sm transition-all duration-300 ${
           isHovered
             ? "shadow-md scale-[1.01] bg-blanc border border-accent-red/10"
             : "group-hover:shadow-sm group-hover:bg-blanc/30"
         }`}
       >
         <div className="text-center md:text-left">
-          <h3 className="text-lg sm:text-xl font-semibold mb-6 text-noir group-hover:text-accent-red transition-colors duration-300">
+          <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-3 sm:mb-4 md:mb-6 text-noir group-hover:text-accent-red transition-colors duration-300">
             {step.title}
           </h3>
-          <p className="text-gris text-sm sm:text-base leading-relaxed mt-4">
+          <p className="text-gris text-sm sm:text-base leading-relaxed mt-2 sm:mt-3 md:mt-4">
             {step.description}
           </p>
         </div>
@@ -104,13 +104,13 @@ function Step({ step, index }: { step: typeof steps[0]; index: number }) {
 
 export function HowItWorksSection() {
   return (
-    <section id="comment" className="bg-blanc py-20 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8">
+    <section id="comment" className="bg-blanc py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl italic mb-10">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl italic mb-4 sm:mb-6 md:mb-10">
             Comment AdminZen vous simplifie la vie
           </h2>
-          <p className="text-lg sm:text-xl text-gris max-w-2xl mx-auto mt-6">
+          <p className="text-base sm:text-lg md:text-xl text-gris max-w-2xl mx-auto mt-4 sm:mt-6">
             3 étapes. Zéro effort de votre part.
           </p>
         </div>

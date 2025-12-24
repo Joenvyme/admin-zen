@@ -77,14 +77,14 @@ function PainCard({ icon, title, description, index }: typeof painPoints[0] & { 
         className={`absolute inset-0 bg-gradient-to-br from-accent-red/3 via-transparent to-vert/3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}
       />
 
-      <div className="relative p-5 sm:p-6">
-        <div className="text-3xl sm:text-4xl mb-3 transform transition-transform duration-300 group-hover:scale-105 opacity-80 group-hover:opacity-100">
+      <div className="relative p-4 sm:p-5 md:p-6">
+        <div className="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3 transform transition-transform duration-300 group-hover:scale-105 opacity-80 group-hover:opacity-100">
           {icon}
         </div>
-        <h3 className="text-lg sm:text-xl font-semibold mb-4 text-noir group-hover:text-accent-red transition-colors duration-300">
+        <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3 md:mb-4 text-noir group-hover:text-accent-red transition-colors duration-300">
           {title}
         </h3>
-        <p className="text-gris leading-relaxed text-sm sm:text-base mt-3">
+        <p className="text-gris leading-relaxed text-sm sm:text-base mt-2 sm:mt-3">
           {description}
         </p>
       </div>
@@ -94,17 +94,17 @@ function PainCard({ icon, title, description, index }: typeof painPoints[0] & { 
 
 export function PainPointsSection() {
   return (
-    <section className="bg-gris-clair py-20 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8">
+    <section className="bg-gris-clair py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl italic mb-10">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl italic mb-4 sm:mb-6 md:mb-10">
             Vous reconnaissez ces situations ?
           </h2>
-          <p className="text-lg sm:text-xl text-gris max-w-2xl mx-auto mt-6">
+          <p className="text-base sm:text-lg md:text-xl text-gris max-w-2xl mx-auto mt-4 sm:mt-6">
             La complexité administrative suisse n&apos;est pas une fatalité
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
           {painPoints.map((point, index) => (
             <PainCard key={index} {...point} index={index} />
           ))}

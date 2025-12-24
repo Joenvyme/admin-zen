@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export function Footer() {
   return (
-    <footer className="bg-[#2A2A2A] text-gris py-12 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-[#2A2A2A] text-gris py-12 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full">
       <div className="max-w-7xl mx-auto text-center">
         <p className="mb-4">&copy; 2025 AdminZen · Made with ❤️ in Switzerland</p>
         <p className="mb-2">

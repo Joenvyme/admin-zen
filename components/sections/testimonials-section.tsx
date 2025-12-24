@@ -85,25 +85,25 @@ function TestimonialCard({
       } hover:border-gris/30 hover:shadow-lg`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <CardContent className="p-5 sm:p-6">
+      <CardContent className="p-4 sm:p-5 md:p-6">
         {/* Rating */}
-        <div className="flex gap-1 mb-4">
+        <div className="flex gap-1 mb-3 sm:mb-4">
           {[...Array(testimonial.rating)].map((_, i) => (
             <Star
               key={i}
-              className="w-4 h-4 fill-jaune text-jaune"
+              className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-jaune text-jaune"
             />
           ))}
         </div>
 
         {/* Text */}
-        <p className="text-gris-clair text-sm sm:text-base leading-relaxed mb-4 font-light">
+        <p className="text-gris-clair text-sm sm:text-base leading-relaxed mb-3 sm:mb-4 font-light">
           &quot;{testimonial.text}&quot;
         </p>
 
         {/* Author */}
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full overflow-hidden bg-gris-clair flex-shrink-0 relative">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-gris-clair flex-shrink-0 relative">
             <Image
               src={testimonial.avatar}
               alt={testimonial.name}
@@ -115,8 +115,8 @@ function TestimonialCard({
             />
           </div>
           <div>
-            <p className="text-blanc text-sm font-medium">{testimonial.name}</p>
-            <p className="text-gris-clair text-xs opacity-70">{testimonial.location}</p>
+            <p className="text-blanc text-xs sm:text-sm font-medium">{testimonial.name}</p>
+            <p className="text-gris-clair text-[10px] sm:text-xs opacity-70">{testimonial.location}</p>
           </div>
         </div>
       </CardContent>
@@ -126,17 +126,17 @@ function TestimonialCard({
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-[#2A2A2A] text-blanc py-20 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#2A2A2A] text-blanc py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl italic mb-10 text-blanc">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl italic mb-4 sm:mb-6 md:mb-10 text-blanc">
             Ce que disent nos utilisateurs
           </h2>
-          <p className="text-gris-clair text-base sm:text-lg max-w-2xl mx-auto opacity-80 mt-6">
+          <p className="text-gris-clair text-sm sm:text-base md:text-lg max-w-2xl mx-auto opacity-80 mt-4 sm:mt-6">
             Rejoignez les centaines de personnes qui ont déjà simplifié leur vie administrative
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard key={index} testimonial={testimonial} index={index} />
           ))}

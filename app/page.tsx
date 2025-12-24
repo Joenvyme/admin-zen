@@ -11,7 +11,7 @@ import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
-    <main id="main-content">
+    <main id="main-content" className="overflow-x-hidden max-w-full">
       <Navigation />
       <HeroSection />
       <TestimonialsSection />

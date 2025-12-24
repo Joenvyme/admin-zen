@@ -29,26 +29,26 @@ export function HeroSection() {
   }
 
   return (
-    <section className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 pt-24 pb-24 sm:pb-28 relative overflow-hidden">
+    <section className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16 sm:pb-24 lg:pb-28 relative overflow-hidden max-w-full">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(214,48,49,0.03),transparent_50%),radial-gradient(circle_at_80%_80%,rgba(0,184,148,0.03),transparent_50%)] pointer-events-none" />
-      <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="max-w-7xl mx-auto w-full relative z-10 overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
           <div className="max-w-2xl">
-          <span className="inline-block text-sm sm:text-base uppercase tracking-wider text-accent-red font-bold mb-10 animate-fade-in-up">
+          <span className="inline-block text-xs sm:text-sm md:text-base uppercase tracking-wider text-accent-red font-bold mb-4 sm:mb-6 md:mb-10 animate-fade-in-up">
             L&apos;Assistant IA Suisse
           </span>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-10 animate-fade-in-up [animation-delay:200ms]">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] sm:leading-tight mb-4 sm:mb-6 md:mb-10 animate-fade-in-up [animation-delay:200ms]">
             Oubliez l&apos;administratif. <em className="italic text-accent-red">Vivez.</em>
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-gris max-w-2xl mb-20 leading-relaxed font-extralight animate-fade-in-up [animation-delay:400ms]" style={{ fontWeight: 200 }}>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gris max-w-2xl mb-8 sm:mb-12 md:mb-16 lg:mb-20 leading-relaxed font-extralight animate-fade-in-up [animation-delay:400ms]" style={{ fontWeight: 200 }}>
             AdminZen gère vos assurances, abonnements et déclarations d&apos;impôts automatiquement. 
             Économisez jusqu&apos;à CHF 2&apos;400/an sans lever le petit doigt.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in-up [animation-delay:600ms]">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12 animate-fade-in-up [animation-delay:600ms]">
             <Button
               asChild
               size="lg"
-              className="text-lg px-8 py-6 hover:animate-none"
+              className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 hover:animate-none w-full sm:w-auto min-h-[48px]"
             >
               <Link href="#waitlist" onClick={(e) => scrollToSection(e, "#waitlist")}>
                 Rejoindre la liste d&apos;attente
@@ -58,15 +58,15 @@ export function HeroSection() {
               asChild
               variant="outline"
               size="lg"
-              className="text-lg px-8 py-6"
+              className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 w-full sm:w-auto min-h-[48px]"
             >
               <Link href="#comment" onClick={(e) => scrollToSection(e, "#comment")}>
                 Comment ça marche ?
               </Link>
             </Button>
           </div>
-          <div className="flex items-center gap-4 flex-wrap animate-fade-in-up [animation-delay:800ms]">
-            <div className="flex -space-x-3">
+          <div className="flex items-center gap-3 sm:gap-4 flex-wrap animate-fade-in-up [animation-delay:800ms]">
+            <div className="flex -space-x-2 sm:-space-x-3">
               {[
                 "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
                 "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
@@ -75,7 +75,7 @@ export function HeroSection() {
               ].map((src, i) => (
                 <div
                   key={i}
-                  className="w-10 h-10 rounded-full border-2 border-blanc overflow-hidden bg-gris-clair flex-shrink-0 relative"
+                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-blanc overflow-hidden bg-gris-clair flex-shrink-0 relative"
                 >
                   <Image
                     src={src}
@@ -89,7 +89,7 @@ export function HeroSection() {
                 </div>
               ))}
             </div>
-            <p className="text-gris text-sm sm:text-base">
+            <p className="text-gris text-xs sm:text-sm md:text-base">
               <strong className="text-noir font-bold">{waitlistCount}</strong> personnes sur liste d&apos;attente
             </p>
           </div>
@@ -232,7 +232,7 @@ export function HeroSection() {
               </div>
               
               {/* Decorative glow */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-accent-red/20 via-vert/20 to-accent-red/20 rounded-[3rem] blur-2xl -z-10 opacity-50" />
+              <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-accent-red/20 via-vert/20 to-accent-red/20 rounded-[3rem] blur-2xl -z-10 opacity-50" />
             </div>
           </div>
         </div>
