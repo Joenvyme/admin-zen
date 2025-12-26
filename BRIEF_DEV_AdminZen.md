@@ -4,8 +4,6 @@
 
 **Nom du projet :** AdminZen - Assistant IA pour gestion administrative suisse  
 **Type :** Landing page de validation MVP (test marché)  
-**Timeline :** 5-7 jours  
-**Budget estimé :** CHF 1'500 - 3'000  
 
 ---
 
@@ -66,20 +64,15 @@ Valider le marché en collectant **200+ emails qualifiés** en 6 semaines avec u
 **Option 1 : Simple & Rapide (recommandé pour MVP)**
 - HTML5 + CSS3 vanilla
 - JavaScript vanilla pour interactions
-- Déploiement : Vercel / Netlify (gratuit)
-- Backend formulaire : Google Sheets API ou Typeform embed
+- Déploiement : Vercel
 
 **Option 2 : Moderne & Scalable**
 - Next.js 14 (App Router)
 - Tailwind CSS
-- Framer Motion pour animations
+- Motion dev
 - Déploiement : Vercel
-- Backend : API Route Next.js → Airtable/Supabase
+- Backend : API Route Next.js → Supabase (utiliser le MCP)
 
-**Option 3 : No-code (si budget très limité)**
-- Webflow ou Framer
-- Intégration Typeform/Tally pour formulaire
-- ⚠️ Moins de flexibilité pour A/B testing
 
 ### Hébergement & Performance
 - **CDN global** obligatoire

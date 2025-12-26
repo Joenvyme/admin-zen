@@ -29,13 +29,13 @@ export function HeroSection() {
   }
 
   return (
-    <section className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16 sm:pb-24 lg:pb-28 relative overflow-hidden max-w-full">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(214,48,49,0.03),transparent_50%),radial-gradient(circle_at_80%_80%,rgba(0,184,148,0.03),transparent_50%)] pointer-events-none" />
+    <section className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16 sm:pb-24 lg:pb-28 relative overflow-hidden max-w-full bg-blanc">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(214,48,49,0.02),transparent_50%),radial-gradient(circle_at_80%_80%,rgba(0,184,148,0.02),transparent_50%)] pointer-events-none" />
       <div className="max-w-7xl mx-auto w-full relative z-10 overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
           <div className="max-w-2xl">
           <span className="inline-block text-xs sm:text-sm md:text-base uppercase tracking-wider text-accent-red font-bold mb-4 sm:mb-6 md:mb-10 animate-fade-in-up">
-            L&apos;Assistant IA Suisse
+            L&apos;Assistant IA Suisse 🇨🇭
           </span>
           <h1 className="font-display text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] sm:leading-tight mb-4 sm:mb-6 md:mb-10 animate-fade-in-up [animation-delay:200ms]">
             Oubliez l&apos;administratif. <em className="italic text-accent-red">Vivez.</em>

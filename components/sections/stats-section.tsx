@@ -152,7 +152,7 @@ export function StatsSection() {
   ]
 
   return (
-    <section className="bg-gris-clair py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="bg-blanc py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {stats.map((stat, index) => (

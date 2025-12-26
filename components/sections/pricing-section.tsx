@@ -16,13 +16,13 @@ const features = [
 
 export function PricingSection() {
   return (
-    <section className="bg-[#2A2A2A] text-blanc py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full">
+    <section className="bg-blanc py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 sm:mb-12 md:mb-16 lg:mb-20">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic mb-4 sm:mb-6 md:mb-10 text-blanc">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic mb-4 sm:mb-6 md:mb-10 text-noir">
             Accès anticipé à prix réduit
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gris-clair max-w-2xl mx-auto mt-4 sm:mt-6">
+          <p className="text-base sm:text-lg md:text-xl text-gris max-w-2xl mx-auto mt-4 sm:mt-6">
             Rejoignez les 428 early adopters et profitez d&apos;un tarif à vie
           </p>
         </div>

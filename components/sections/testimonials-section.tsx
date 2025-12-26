@@ -80,7 +80,7 @@ function TestimonialCard({
   return (
     <Card
       ref={ref}
-      className={`bg-[#2A2A2A] border-gris/20 transition-all duration-300 ${
+      className={`bg-blanc border-gris-clair transition-all duration-300 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       } hover:border-gris/30 hover:shadow-lg`}
       style={{ transitionDelay: `${index * 100}ms` }}
@@ -97,7 +97,7 @@ function TestimonialCard({
         </div>
 
         {/* Text */}
-        <p className="text-gris-clair text-sm sm:text-base leading-relaxed mb-3 sm:mb-4 font-light">
+        <p className="text-gris text-sm sm:text-base leading-relaxed mb-3 sm:mb-4 font-light">
           &quot;{testimonial.text}&quot;
         </p>
 
@@ -115,8 +115,8 @@ function TestimonialCard({
             />
           </div>
           <div>
-            <p className="text-blanc text-xs sm:text-sm font-medium">{testimonial.name}</p>
-            <p className="text-gris-clair text-[10px] sm:text-xs opacity-70">{testimonial.location}</p>
+            <p className="text-noir text-xs sm:text-sm font-medium">{testimonial.name}</p>
+            <p className="text-gris text-[10px] sm:text-xs">{testimonial.location}</p>
           </div>
         </div>
       </CardContent>
@@ -126,13 +126,13 @@ function TestimonialCard({
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-[#2A2A2A] text-blanc py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full">
+    <section className="bg-blanc py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic mb-4 sm:mb-6 md:mb-10 text-blanc">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic mb-4 sm:mb-6 md:mb-10 text-noir">
             Ce que disent nos utilisateurs
           </h2>
-          <p className="text-gris-clair text-sm sm:text-base md:text-lg max-w-2xl mx-auto opacity-80 mt-4 sm:mt-6">
+          <p className="text-gris text-sm sm:text-base md:text-lg max-w-2xl mx-auto mt-4 sm:mt-6">
             Rejoignez les centaines de personnes qui ont déjà simplifié leur vie administrative
           </p>
         </div>

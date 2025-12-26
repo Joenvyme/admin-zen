@@ -93,13 +93,13 @@ export function WaitlistFormSection() {
   }
 
   return (
-    <section id="waitlist" className="bg-accent-red text-blanc py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full">
+    <section id="waitlist" className="bg-blanc py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 sm:mb-12 md:mb-16">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic mb-4 sm:mb-6 md:mb-10">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic mb-4 sm:mb-6 md:mb-10 text-noir">
             Prêt à reprendre le contrôle ?
           </h2>
-          <p className="text-base sm:text-lg md:text-xl opacity-90 max-w-2xl mx-auto mb-8 sm:mb-10 md:mb-12 mt-4 sm:mt-6">
+          <p className="text-base sm:text-lg md:text-xl text-gris max-w-2xl mx-auto mb-8 sm:mb-10 md:mb-12 mt-4 sm:mt-6">
             Rejoignez les 428 personnes qui ne veulent plus jamais perdre de temps avec l&apos;administratif
           </p>
         </div>
@@ -110,11 +110,11 @@ export function WaitlistFormSection() {
                 {...register("email")}
                 type="email"
                 placeholder="Votre email"
-                className="bg-blanc text-noir border-gris-clair h-12 placeholder:text-gris placeholder:opacity-80"
+                className="bg-blanc text-noir border-2 border-gris hover:border-gris/60 focus:border-accent-red focus:ring-2 focus:ring-accent-red/20 h-12 placeholder:text-gris placeholder:opacity-70"
                 disabled={isSubmitting}
               />
               {errors.email && (
-                <p className="text-sm mt-1 text-blanc/90">{errors.email.message}</p>
+                <p className="text-sm mt-1 text-gris">{errors.email.message}</p>
               )}
             </div>
             <div>
@@ -122,11 +122,11 @@ export function WaitlistFormSection() {
                 {...register("prenom")}
                 type="text"
                 placeholder="Prénom"
-                className="bg-blanc text-noir border-gris-clair h-12 placeholder:text-gris placeholder:opacity-80"
+                className="bg-blanc text-noir border-2 border-gris hover:border-gris/60 focus:border-accent-red focus:ring-2 focus:ring-accent-red/20 h-12 placeholder:text-gris placeholder:opacity-70"
                 disabled={isSubmitting}
               />
               {errors.prenom && (
-                <p className="text-sm mt-1 text-blanc/90">{errors.prenom.message}</p>
+                <p className="text-sm mt-1 text-gris">{errors.prenom.message}</p>
               )}
             </div>
             <div>
@@ -135,7 +135,7 @@ export function WaitlistFormSection() {
                 onValueChange={(value) => setValue("canton", value)}
                 disabled={isSubmitting}
               >
-                <SelectTrigger className="bg-blanc text-noir border-gris-clair h-12">
+                <SelectTrigger className="bg-blanc text-noir border-2 border-gris hover:border-gris/60 focus:border-accent-red focus:ring-2 focus:ring-accent-red/20 h-12">
                   <SelectValue placeholder="Canton de résidence" />
                 </SelectTrigger>
                 <SelectContent>
@@ -147,13 +147,13 @@ export function WaitlistFormSection() {
                 </SelectContent>
               </Select>
               {errors.canton && (
-                <p className="text-sm mt-1 text-blanc/90">{errors.canton.message}</p>
+                <p className="text-sm mt-1 text-gris">{errors.canton.message}</p>
               )}
             </div>
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-blanc text-accent-red hover:bg-[#2A2A2A] hover:text-blanc text-base sm:text-lg py-5 sm:py-6 min-h-[48px]"
+              className="w-full bg-accent-red text-blanc hover:bg-accent-red/90 text-base sm:text-lg py-5 sm:py-6 min-h-[48px]"
             >
               {isSubmitting ? (
                 <>
@@ -168,14 +168,14 @@ export function WaitlistFormSection() {
               <div
                 className={`p-4 rounded-md ${
                   submitStatus.type === "success"
-                    ? "bg-vert/20 border-2 border-vert text-blanc"
-                    : "bg-accent-red/20 border-2 border-blanc text-blanc"
+                    ? "bg-vert/10 border-2 border-vert text-noir"
+                    : "bg-accent-red/10 border-2 border-accent-red text-noir"
                 }`}
               >
                 <p className="whitespace-pre-line">{submitStatus.message}</p>
               </div>
             )}
-            <p className="text-sm text-center opacity-90 mt-4">
+            <p className="text-sm text-center text-gris mt-4">
               Pas de carte bancaire requise · Vous recevrez un email de confirmation
             </p>
           </form>
