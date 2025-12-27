@@ -97,10 +97,14 @@ export function WaitlistFormSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 sm:mb-12 md:mb-16">
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic mb-4 sm:mb-6 md:mb-10 text-noir">
-            Prêt à reprendre le contrôle ?
+            Réservez votre place maintenant
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gris max-w-2xl mx-auto mb-8 sm:mb-10 md:mb-12 mt-4 sm:mt-6">
-            Rejoignez les 428 personnes qui ne veulent plus jamais perdre de temps avec l&apos;administratif
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gris max-w-2xl mx-auto mb-8 sm:mb-10 md:mb-12 mt-4 sm:mt-6 px-2">
+            <strong className="text-noir">428+ personnes</strong> ont déjà réservé<br className="sm:hidden" />
+            <span className="hidden sm:inline"> · </span>
+            <strong className="text-accent-red">CHF 5/mois garanti à vie</strong><br className="sm:hidden" />
+            <span className="hidden sm:inline"> · </span>
+            Seulement 50 places restantes
           </p>
         </div>
         <div className="max-w-md mx-auto">
@@ -161,7 +165,7 @@ export function WaitlistFormSection() {
                   Envoi en cours...
                 </>
               ) : (
-                "🎉 Réserver ma place (50 restantes)"
+                "🎉 Réserver ma place maintenant"
               )}
             </Button>
             {submitStatus.type && (

@@ -1,104 +1,78 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { Card, CardContent } from "@/components/ui/card"
+import { motion } from "framer-motion"
+import { cn } from "@/lib/utils"
 
 const steps = [
   {
     number: 1,
-    title: "Connectez vos emails (sécurisé)",
+    title: "Connectez vos emails (2 clics)",
     description:
-      "En 2 clics, AdminZen accède à vos emails pour détecter automatiquement vos polices d'assurance, contrats d'abonnements et documents fiscaux. Chiffrement de bout en bout, données hébergées en Suisse. Conforme RGPD/LPD.",
+      "Détection automatique de vos assurances, abonnements et documents fiscaux. Chiffrement bout en bout, données hébergées en Suisse. Conforme RGPD/LPD.",
   },
   {
     number: 2,
-    title: "L'IA analyse et surveille pour vous",
+    title: "L'IA surveille et compare 24/7",
     description:
-      "Notre intelligence artificielle scanne le marché suisse 24/7, compare les prix, détecte les opportunités d'économies et vous alerte 10 jours avant chaque deadline importante. Plus jamais de 30 novembre manqué.",
+      "Scan du marché suisse en continu. Détection des opportunités d'économies et alertes 10 jours avant chaque deadline. Plus jamais de 30 novembre raté.",
   },
   {
     number: 3,
-    title: "Validez en 1 clic (ou on s'en occupe)",
+    title: "Validez en 1 clic ou mode automatique",
     description:
-      "AdminZen vous propose les meilleures options avec calculs précis. Validez en un clic, et on génère même vos lettres de résiliation pré-remplies. Ou optez pour le mode \"pilote automatique\" : on gère tout.",
+      "Meilleures options avec calculs précis. Lettres de résiliation pré-remplies. Ou mode pilote automatique : on gère tout pour vous.",
   },
 ]
 
 function Step({ step, index }: { step: typeof steps[0]; index: number }) {
-  const [isVisible, setIsVisible] = useState(false)
-  const [isHovered, setIsHovered] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.2 }
-    )
-
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
-
-    return () => observer.disconnect()
-  }, [])
-
-  const isEven = index % 2 === 1
-
   return (
-    <div
-      ref={ref}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className={`group relative flex flex-col ${
-        isEven ? "md:flex-row-reverse" : "md:flex-row"
-      } gap-4 md:gap-6 items-center md:items-start mb-10 sm:mb-12 md:mb-14 lg:mb-16 last:mb-0 transition-all duration-300 ${
-        isVisible
-          ? "opacity-100 translate-x-0"
-          : `opacity-0 ${isEven ? "translate-x-8" : "-translate-x-8"}`
-      }`}
-      style={{ transitionDelay: `${index * 100}ms` }}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ 
+        duration: 0.5, 
+        delay: index * 0.1,
+        ease: [0.22, 1, 0.36, 1]
+      }}
+      className="relative mb-6 last:mb-0"
     >
-      {/* Connection line (desktop only) - more subtle */}
-      {index < steps.length - 1 && (
-        <div className={`hidden md:block absolute top-16 left-1/2 w-0.5 h-[calc(100%+2rem)] bg-gradient-to-b from-accent-red/10 via-vert/15 to-accent-red/10 -z-10 transform -translate-x-1/2 transition-opacity duration-300 ${
-          isVisible ? "opacity-100" : "opacity-0"
-        }`} />
-      )}
-
-      {/* Number circle - smaller and more discrete */}
-      <div className="relative flex-shrink-0">
-        <div
-          className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-accent-red text-blanc flex items-center justify-center font-display text-xl sm:text-2xl italic font-semibold shadow-sm transition-all duration-300 ${
-            isHovered
-              ? "scale-105 shadow-md"
-              : "group-hover:scale-102"
-          }`}
-        >
-          {step.number}
-        </div>
-      </div>
-
-      {/* Content card - more discrete */}
-      <div
-        className={`flex-1 bg-gris-clair rounded-lg p-4 sm:p-5 md:p-6 shadow-sm transition-all duration-300 ${
-          isHovered
-            ? "shadow-md scale-[1.01] bg-blanc border border-accent-red/10"
-            : "group-hover:shadow-sm group-hover:bg-blanc/30"
-        }`}
-      >
-        <div className="text-center md:text-left">
-          <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-3 sm:mb-4 md:mb-6 text-noir group-hover:text-accent-red transition-colors duration-300">
-            {step.title}
-          </h3>
-          <p className="text-gris text-sm sm:text-base leading-relaxed mt-2 sm:mt-3 md:mt-4">
-            {step.description}
-          </p>
-        </div>
-      </div>
-    </div>
+      <Card className="border border-gris-clair hover:border-gris/40 transition-all duration-200">
+        <CardContent className="p-6">
+          <motion.div 
+            className="flex items-start gap-4"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
+          >
+            <motion.div 
+              className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-red text-blanc flex items-center justify-center font-display text-base italic font-semibold"
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ 
+                type: "spring", 
+                stiffness: 200, 
+                damping: 15,
+                delay: index * 0.1 + 0.3
+              }}
+            >
+              {step.number}
+            </motion.div>
+            <div className="flex-1 min-w-0">
+              <h3 className="text-base sm:text-lg font-semibold mb-2 text-noir">
+                {step.title}
+              </h3>
+              <p className="text-gris text-sm leading-relaxed">
+                {step.description}
+              </p>
+            </div>
+          </motion.div>
+        </CardContent>
+      </Card>
+    </motion.div>
   )
 }
 
@@ -106,15 +80,33 @@ export function HowItWorksSection() {
   return (
     <section id="comment" className="bg-blanc py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic mb-4 sm:mb-6 md:mb-10">
+        <motion.div 
+          className="text-center mb-8 sm:mb-12 md:mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.h2 
+            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic mb-4 sm:mb-6 md:mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
             Comment AdminZen vous simplifie la vie
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gris max-w-2xl mx-auto mt-4 sm:mt-6">
+          </motion.h2>
+          <motion.p 
+            className="text-base sm:text-lg md:text-xl text-gris max-w-2xl mx-auto mt-4 sm:mt-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             3 étapes. Zéro effort de votre part.
-          </p>
-        </div>
-        <div className="max-w-4xl mx-auto">
+          </motion.p>
+        </motion.div>
+        <div className="max-w-3xl mx-auto">
           {steps.map((step, index) => (
             <Step key={step.number} step={step} index={index} />
           ))}

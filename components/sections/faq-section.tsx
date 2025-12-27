@@ -12,22 +12,22 @@ const faqs = [
   {
     question: "Mes données sont-elles en sécurité ?",
     answer:
-      "Absolument. AdminZen utilise un chiffrement de bout en bout (AES-256), toutes vos données sont hébergées en Suisse (serveurs à Zurich), et nous sommes 100% conformes au RGPD et à la LPD suisse. Nous n'avons accès qu'aux emails contenant des mots-clés administratifs (assurance, facture, contrat), jamais à vos emails personnels.",
+      "Oui. Chiffrement bout en bout (AES-256), données hébergées en Suisse (Zurich), 100% conforme RGPD/LPD. Accès uniquement aux emails administratifs (assurance, facture, contrat), jamais à vos emails personnels.",
   },
   {
-    question: "Comment AdminZen peut-il vraiment me faire économiser CHF 2'400 ?",
+    question: "Comment économiser CHF 2'400/an ?",
     answer:
-      "C'est la moyenne constatée sur nos bêta-testeurs : CHF 400-800/an sur l'assurance maladie (en changeant de caisse + optimisant franchise), CHF 600-1'200/an en annulant les abonnements inutilisés, et CHF 500-1'000 en optimisant les déductions fiscales (3e pilier, frais pro). Même si vous n'économisez \"que\" CHF 1'000, AdminZen se rembourse 67× par an.",
+      "Moyenne constatée : CHF 400-800/an sur l'assurance maladie, CHF 600-1'200/an en annulant les abonnements oubliés, CHF 500-1'000 en optimisant les déductions fiscales (3e pilier, frais pro). Même à CHF 1'000 économisés, AdminZen se rembourse 67× par an.",
   },
   {
-    question: "C'est quoi la différence avec Comparis ou Bonus.ch ?",
+    question: "Différence avec Comparis ou Bonus.ch ?",
     answer:
-      "Comparis vous demande de comparer manuellement. AdminZen fait tout automatiquement : détecte vos contrats actuels dans vos emails, compare en continu, vous alerte au bon moment, et prépare même vos lettres de résiliation. Vous passez de 3h de recherche à 1 clic de validation.",
+      "Comparis = comparaison manuelle. AdminZen = automatique : détection de vos contrats, comparaison continue, alertes au bon moment, lettres de résiliation pré-remplies. De 3h de recherche à 1 clic.",
   },
   {
-    question: "Je suis nul en administratif, c'est vraiment pour moi ?",
+    question: "Je suis nul en administratif, c'est pour moi ?",
     answer:
-      "C'est EXACTEMENT pour vous ! AdminZen a été conçu pour les gens qui détestent l'administratif. Si vous comprenez déjà tout le système suisse, vous n'avez pas besoin de nous. Mais si les termes \"LAMal\", \"LPP\" ou \"déduction 3a\" vous donnent des sueurs froides, on est fait pour s'entendre.",
+      "EXACTEMENT pour vous ! Conçu pour ceux qui détestent l'administratif. Si \"LAMal\", \"LPP\" ou \"déduction 3a\" vous donnent des sueurs froides, on est fait pour s'entendre.",
   },
   {
     question: "Ça marche dans tous les cantons ?",

@@ -9,42 +9,42 @@ const testimonials = [
   {
     name: "Sophie M.",
     location: "Genève",
-    text: "J'ai économisé CHF 800 sur mon assurance maladie cette année. AdminZen m'a alertée 10 jours avant la deadline. Inestimable !",
+    text: "CHF 800 économisés cette année. Alertée 10 jours avant la deadline. Inestimable !",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face",
     rating: 5,
   },
   {
     name: "Marc L.",
     location: "Zurich",
-    text: "Plus jamais de stress avec les impôts. L'IA détecte toutes les déductions possibles. Je recommande à 100%.",
+    text: "Fini le stress des impôts. L'IA détecte toutes les déductions. Je recommande à 100%.",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
     rating: 5,
   },
   {
     name: "Julie B.",
     location: "Lausanne",
-    text: "J'ai annulé 3 abonnements que j'avais oubliés. CHF 45/mois économisés sans effort. Merci AdminZen !",
+    text: "3 abonnements oubliés annulés. CHF 45/mois récupérés automatiquement.",
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face",
     rating: 5,
   },
   {
     name: "Thomas R.",
     location: "Berne",
-    text: "Enfin un outil qui comprend la complexité administrative suisse. Ça change la vie !",
+    text: "Enfin un outil qui comprend l'administratif suisse. Ça change la vie !",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face",
     rating: 5,
   },
   {
     name: "Camille D.",
     location: "Bâle",
-    text: "Le mode pilote automatique est génial. Je n'ai plus à penser à rien, tout est géré pour moi.",
+    text: "Mode pilote automatique : je n'ai plus à penser à rien. Tout est géré.",
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face",
     rating: 5,
   },
   {
     name: "David K.",
     location: "Fribourg",
-    text: "CHF 1'200 économisés en optimisant mon 3e pilier. L'IA a trouvé des déductions que je ne connaissais pas.",
+    text: "CHF 1'200 économisés sur mon 3e pilier. L'IA a trouvé des déductions inconnues.",
     avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face",
     rating: 5,
   },
@@ -130,10 +130,10 @@ export function TestimonialsSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic mb-4 sm:mb-6 md:mb-10 text-noir">
-            Ce que disent nos utilisateurs
+            Ils économisent déjà des milliers
           </h2>
           <p className="text-gris text-sm sm:text-base md:text-lg max-w-2xl mx-auto mt-4 sm:mt-6">
-            Rejoignez les centaines de personnes qui ont déjà simplifié leur vie administrative
+            Découvrez comment nos utilisateurs ont simplifié leur vie administrative
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">

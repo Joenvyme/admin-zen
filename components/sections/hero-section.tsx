@@ -31,7 +31,7 @@ export function HeroSection() {
   return (
     <section className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16 sm:pb-24 lg:pb-28 relative overflow-hidden max-w-full bg-blanc">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(214,48,49,0.02),transparent_50%),radial-gradient(circle_at_80%_80%,rgba(0,184,148,0.02),transparent_50%)] pointer-events-none" />
-      <div className="max-w-7xl mx-auto w-full relative z-10 overflow-hidden">
+      <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
           <div className="max-w-2xl">
           <span className="inline-block text-xs sm:text-sm md:text-base uppercase tracking-wider text-accent-red font-bold mb-4 sm:mb-6 md:mb-10 animate-fade-in-up">
@@ -41,8 +41,8 @@ export function HeroSection() {
             Oubliez l&apos;administratif. <em className="italic text-accent-red">Vivez.</em>
           </h1>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gris max-w-2xl mb-8 sm:mb-12 md:mb-16 lg:mb-20 leading-relaxed font-extralight animate-fade-in-up [animation-delay:400ms]" style={{ fontWeight: 200 }}>
-            AdminZen gère vos assurances, abonnements et déclarations d&apos;impôts automatiquement. 
-            Économisez jusqu&apos;à CHF 2&apos;400/an sans lever le petit doigt.
+            Gestion automatique de vos assurances, abonnements et impôts. 
+            <strong className="font-medium text-noir"> Économisez CHF 2&apos;400/an</strong> sans effort.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12 animate-fade-in-up [animation-delay:600ms]">
             <Button
@@ -51,7 +51,7 @@ export function HeroSection() {
               className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 hover:animate-none w-full sm:w-auto min-h-[48px]"
             >
               <Link href="#waitlist" onClick={(e) => scrollToSection(e, "#waitlist")}>
-                Rejoindre la liste d&apos;attente
+                Réserver ma place (CHF 5/mois)
               </Link>
             </Button>
             <Button
@@ -90,14 +90,14 @@ export function HeroSection() {
               ))}
             </div>
             <p className="text-gris text-xs sm:text-sm md:text-base">
-              <strong className="text-noir font-bold">{waitlistCount}</strong> personnes sur liste d&apos;attente
+              <strong className="text-noir font-bold">{waitlistCount}+</strong> personnes ont déjà réservé
             </p>
           </div>
           </div>
           
           {/* iPhone Mockup */}
-          <div className="hidden lg:flex items-center justify-center relative">
-            <div className="relative w-64 h-[500px] animate-fade-in-up [animation-delay:1000ms]">
+          <div className="hidden lg:flex items-center justify-center relative overflow-visible">
+            <div className="relative w-64 h-[500px] animate-fade-in-up [animation-delay:1000ms] pb-12">
               {/* iPhone Frame */}
               <div className="absolute inset-0 bg-noir rounded-[3rem] p-2 shadow-2xl">
                 <div className="w-full h-full bg-blanc rounded-[2.5rem] overflow-hidden relative">
@@ -232,7 +232,7 @@ export function HeroSection() {
               </div>
               
               {/* Decorative glow */}
-              <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-accent-red/20 via-vert/20 to-accent-red/20 rounded-[3rem] blur-2xl -z-10 opacity-50" />
+              <div className="absolute -inset-4 sm:-inset-6 md:-inset-8 bg-gradient-to-r from-accent-red/20 via-vert/20 to-accent-red/20 rounded-[3rem] blur-2xl -z-10 opacity-50" style={{ bottom: '-2rem' }} />
             </div>
           </div>
         </div>

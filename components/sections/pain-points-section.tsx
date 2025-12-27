@@ -1,44 +1,64 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
+import { Switch } from "@/components/ui/switch"
+import { Label } from "@/components/ui/label"
 import { useEffect, useRef, useState } from "react"
+import { X, Check } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 const painPoints = [
   {
-    icon: "📅",
-    title: "30 novembre encore raté",
-    description: "Chaque année, vous ratez la deadline de changement d'assurance maladie et payez CHF 400 de trop. Encore.",
+    title: "30 novembre raté. CHF 400 perdus chaque année sur votre assurance maladie.",
   },
   {
-    icon: "😰",
-    title: "Déclaration d'impôts : la torture",
-    description: "3 piliers, déductions cantonales, formulaires en allemand... Vous procrastinez jusqu'à la dernière seconde.",
+    title: "Impôts : procrastination jusqu'à la dernière seconde. 3 piliers, déductions cantonales... trop complexe.",
   },
   {
-    icon: "📧",
-    title: "Emails perdus dans le chaos",
-    description: "Votre police d'assurance expire dans 2 semaines mais l'email est noyé entre 500 newsletters non lues.",
+    title: "Email important noyé dans 500 newsletters. Votre police expire dans 2 semaines et vous ne le savez pas.",
   },
   {
-    icon: "💸",
-    title: "Abonnements oubliés",
-    description: "Netflix, Spotify, Swisscom, Salt, la salle de sport que vous n'utilisez plus... CHF 150/mois qui partent en fumée.",
+    title: "CHF 150/mois pour des abonnements oubliés. Netflix, Spotify, salle de sport... vous n'utilisez plus.",
   },
   {
-    icon: "🤯",
-    title: "Trop de paperasse",
-    description: "Entre Suva, LAMal, LPP, AVS... vous ne comprenez rien et vous n'avez pas le temps de chercher.",
+    title: "Suva, LAMal, LPP, AVS... vous ne comprenez rien et n'avez pas le temps de chercher.",
   },
   {
-    icon: "😓",
-    title: "Zero temps libre",
-    description: "Le week-end, vous devriez profiter. Pas passer 3h à comparer des assurances sur Comparis.",
+    title: "3h perdues le week-end à comparer des assurances sur Comparis. Vous devriez profiter.",
   },
 ]
 
-function PainCard({ icon, title, description, index }: typeof painPoints[0] & { index: number }) {
+const advantages = [
+  {
+    title: "Alertes 10 jours avant chaque deadline. Le 30 novembre ? On vous rappelle à temps.",
+  },
+  {
+    title: "Impôts en 1 clic. Tous vos documents rassemblés automatiquement. Fini les heures de recherche.",
+  },
+  {
+    title: "Résiliez vos abonnements au bon moment. Rappels automatiques pour ne plus payer l'inutile.",
+  },
+  {
+    title: "CHF 150/mois récupérés automatiquement. Détection des abonnements inutilisés et recommandations.",
+  },
+  {
+    title: "Déductions fiscales détectées automatiquement. 3e pilier, frais pro... selon votre canton.",
+  },
+  {
+    title: "L'IA compare et vous propose les meilleures offres. Économisez sur assurances et abonnements.",
+  },
+]
+
+function ItemCard({ 
+  title, 
+  index,
+  isAdvantage = false 
+}: { 
+  title: string
+  index: number
+  isAdvantage?: boolean
+}) {
   const [isVisible, setIsVisible] = useState(false)
-  const [isHovered, setIsHovered] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -59,54 +79,91 @@ function PainCard({ icon, title, description, index }: typeof painPoints[0] & { 
   }, [])
 
   return (
-    <div
+    <Card
       ref={ref}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className={`group relative bg-blanc border-l-2 border-l-accent-red/60 rounded-lg shadow-sm transition-all duration-300 ease-out overflow-hidden ${
+      className={cn(
+        "group border border-gris-clair hover:border-gris/40 transition-all duration-200",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-      } ${
-        isHovered
-          ? "-translate-y-1 shadow-md scale-[1.01] border-l-accent-red border-l-[3px]"
-          : "hover:shadow-sm"
-      }`}
+      )}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      {/* Subtle gradient overlay on hover */}
-      <div
-        className={`absolute inset-0 bg-gradient-to-br from-accent-red/3 via-transparent to-vert/3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}
-      />
-
-      <div className="relative p-4 sm:p-5 md:p-6">
-        <div className="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3 transform transition-transform duration-300 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-          {icon}
+      <CardContent className="p-6">
+        <div className="flex items-start gap-4">
+          <div className={cn(
+            "flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-colors",
+            isAdvantage 
+              ? "bg-vert/10 group-hover:bg-vert/20" 
+              : "bg-accent-red/10 group-hover:bg-accent-red/20"
+          )}>
+            {isAdvantage ? (
+              <Check className="w-5 h-5 text-vert" />
+            ) : (
+              <X className="w-5 h-5 text-accent-red" />
+            )}
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-base sm:text-lg font-normal text-noir leading-relaxed">
+              {title}
+            </p>
+          </div>
         </div>
-        <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3 md:mb-4 text-noir group-hover:text-accent-red transition-colors duration-300">
-          {title}
-        </h3>
-        <p className="text-gris leading-relaxed text-sm sm:text-base mt-2 sm:mt-3">
-          {description}
-        </p>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   )
 }
 
 export function PainPointsSection() {
+  const [showAdvantages, setShowAdvantages] = useState(false)
+
   return (
     <section className="bg-blanc py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic mb-4 sm:mb-6 md:mb-10">
-            Vous reconnaissez ces situations ?
+            {showAdvantages ? "Vos avantages avec AdminZen" : "Vous reconnaissez ces situations ?"}
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gris max-w-2xl mx-auto mt-4 sm:mt-6">
-            La complexité administrative suisse n&apos;est pas une fatalité
+          <p className="text-base sm:text-lg md:text-xl text-gris max-w-2xl mx-auto mt-4 sm:mt-6 mb-8">
+            {showAdvantages 
+              ? "Des bénéfices concrets pour simplifier votre quotidien administratif"
+              : "La complexité administrative suisse n&apos;est pas une fatalité"
+            }
           </p>
+          
+          {/* Toggle */}
+          <div className="flex items-center justify-center gap-3 sm:gap-4 mb-8">
+            <Label 
+              htmlFor="toggle-avant-apres" 
+              className={cn(
+                "text-sm sm:text-base font-medium cursor-pointer transition-colors",
+                !showAdvantages ? "text-noir" : "text-gris"
+              )}
+            >
+              Avant
+            </Label>
+            <Switch
+              id="toggle-avant-apres"
+              checked={showAdvantages}
+              onCheckedChange={setShowAdvantages}
+            />
+            <Label 
+              htmlFor="toggle-avant-apres" 
+              className={cn(
+                "text-sm sm:text-base font-medium cursor-pointer transition-colors",
+                showAdvantages ? "text-noir" : "text-gris"
+              )}
+            >
+              Après
+            </Label>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
-          {painPoints.map((point, index) => (
-            <PainCard key={index} {...point} index={index} />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
+          {(showAdvantages ? advantages : painPoints).map((item, index) => (
+            <ItemCard 
+              key={index} 
+              {...item} 
+              index={index}
+              isAdvantage={showAdvantages}
+            />
           ))}
         </div>
       </div>
