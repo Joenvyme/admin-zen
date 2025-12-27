@@ -125,7 +125,7 @@ export function PainPointsSection() {
           <p className="text-base sm:text-lg md:text-xl text-gris max-w-2xl mx-auto mt-4 sm:mt-6 mb-8">
             {showAdvantages 
               ? "Des bénéfices concrets pour simplifier votre quotidien administratif"
-              : "La complexité administrative suisse n&apos;est pas une fatalité"
+              : "La complexité administrative suisse n'est pas une fatalité"
             }
           </p>
           
