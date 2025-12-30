@@ -58,6 +58,7 @@ const config = {
         blanc: "#FAFAFA",
         "gris-clair": "#F7F7F2", // Beige-gris très clair et naturel (plus doux que #E8E8E8)
         "gris-clair-original": "#E8E8E8", // Ancien gris-clair si nécessaire
+        "zinc-100": "hsl(240 4.8% 95.9%)", // Zinc-100 de Shadcn
         gris: "#6B6B6B",
         "accent-red": "#D63031",
         "accent-red-hover": "#B82829",

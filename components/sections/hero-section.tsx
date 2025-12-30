@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 import { useEffect, useState } from "react"
+import { Check, Loader2, ArrowUp, Mic, Mail, Folder, Globe } from "lucide-react"
 
 export function HeroSection() {
   const [waitlistCount, setWaitlistCount] = useState(428)
@@ -29,11 +30,11 @@ export function HeroSection() {
   }
 
   return (
-    <section className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16 sm:pb-24 lg:pb-28 relative overflow-hidden max-w-full bg-blanc">
+    <section className="min-h-screen flex items-center px-4 sm:px-6 lg:pl-8 lg:pr-0 pt-20 sm:pt-24 pb-16 sm:pb-24 lg:pb-28 relative bg-blanc overflow-x-clip">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(214,48,49,0.02),transparent_50%),radial-gradient(circle_at_80%_80%,rgba(0,184,148,0.02),transparent_50%)] pointer-events-none" />
       <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
-          <div className="max-w-2xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-0 items-center relative">
+          <div className="max-w-2xl lg:pr-8 relative z-20">
           <span className="inline-block text-xs sm:text-sm md:text-base uppercase tracking-wider text-accent-red font-bold mb-4 sm:mb-6 md:mb-10 animate-fade-in-up">
             L&apos;Assistant IA Suisse 🇨🇭
           </span>
@@ -94,147 +95,179 @@ export function HeroSection() {
             </p>
           </div>
           </div>
-          
-          {/* iPhone Mockup */}
-          <div className="hidden lg:flex items-center justify-center relative overflow-visible">
-            <div className="relative w-64 h-[500px] animate-fade-in-up [animation-delay:1000ms] pb-12">
-              {/* iPhone Frame */}
-              <div className="absolute inset-0 bg-noir rounded-[3rem] p-2 shadow-2xl">
-                <div className="w-full h-full bg-blanc rounded-[2.5rem] overflow-hidden relative">
-                  {/* Notch */}
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-noir rounded-b-2xl z-10" />
+        </div>
+      </div>
+      
+      {/* Tablet Mockup - Outside container to touch right edge */}
+      <div className="hidden 2xl:block absolute right-0 top-1/2 -translate-y-1/2 z-10">
+        <div className="relative w-[675px] h-[600px] animate-fade-in-up [animation-delay:1000ms] pb-12">
+          {/* Tablet Frame */}
+          <div className="absolute inset-0 bg-noir rounded-l-[2rem] pl-1.5 pt-1.5 pb-1.5 pr-0 shadow-2xl" style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }}>
+            <div className="w-full h-full bg-blanc rounded-l-[1.75rem] overflow-hidden relative" style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }}>
+              {/* Screen Content - Desktop Interface */}
+              <div className="w-full h-full bg-blanc p-5 overflow-hidden flex flex-col relative z-0">
+                {/* Header */}
+                <div className="flex items-center justify-between mb-5 pb-4 border-b border-gris-clair">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-gris-clair flex-shrink-0">
+                      <Image
+                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
+                        alt="Profil"
+                        width={40}
+                        height={40}
+                        className="object-cover w-full h-full"
+                        loading="lazy"
+                        unoptimized
+                      />
+                    </div>
+                    <div>
+                      <div className="h-2.5 bg-gris-clair rounded w-32 mb-1.5" />
+                      <div className="h-2 bg-gris-clair rounded w-20" />
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Chat IA - Full Width */}
+                <div className="flex-1 flex flex-col overflow-hidden min-h-0">
+                  {/* Chat Messages */}
+                  <div className="flex-1 overflow-y-auto pr-2 bg-gris-clair/10 min-h-0">
+                    {/* Welcome Message - Message reçu (IA) */}
+                    <div className="mb-6">
+                      <h3 className="text-lg font-semibold text-noir mb-1">
+                        Bonjour !
+                      </h3>
+                      <p className="text-sm text-gris leading-relaxed">
+                        Comment puis-je vous aider aujourd&apos;hui ?
+                      </p>
+                    </div>
+                    
+                    {/* Message envoyé (Utilisateur) - Exemple */}
+                    <div className="mb-6 flex justify-end">
+                      <div className="bg-accent-red/10 rounded-lg px-3 py-2 max-w-[85%]">
+                        <p className="text-sm text-noir leading-relaxed">
+                          J&apos;aimerais préparer ma déclaration d&apos;impôts
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Thinking Mode - Plusieurs étapes */}
+                    <div className="mb-6">
+                      <div className="space-y-2.5 relative pl-6">
+                        {/* Ligne de connexion verticale subtile */}
+                        <div className="absolute left-[7px] top-2 bottom-2 w-px bg-gradient-to-b from-vert via-vert via-vert to-gris-clair"></div>
+                        
+                        {/* Étape 1 - Terminée */}
+                        <div className="relative flex items-start gap-3">
+                          <div className="flex-shrink-0 mt-0.5">
+                            <Check className="w-4 h-4 text-vert stroke-[2]" />
+                          </div>
+                          <div className="flex-1 pt-0.5">
+                            <p className="text-xs text-vert leading-relaxed">Analyse de vos documents fiscaux...</p>
+                          </div>
+                        </div>
+                        
+                        {/* Étape 2 - En cours */}
+                        <div className="relative flex items-start gap-3">
+                          <div className="flex-shrink-0 mt-0.5">
+                            <Loader2 className="w-4 h-4 text-vert stroke-[2] animate-spin" />
+                          </div>
+                          <div className="flex-1 pt-0.5">
+                            <div className="flex items-center gap-2">
+                              <p className="text-xs text-noir leading-relaxed font-medium">Identification des déductions possibles...</p>
+                              <div className="h-4 px-1.5 rounded-full bg-gris flex items-center gap-1 flex-shrink-0">
+                                <Globe className="w-2.5 h-2.5 text-blanc" />
+                                <span className="text-[8px] text-blanc font-medium">Web</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* Étape 3 - Recherche dans les emails */}
+                        <div className="relative flex items-start gap-3">
+                          <div className="flex-shrink-0 mt-0.5">
+                            <Loader2 className="w-4 h-4 text-vert stroke-[2] animate-spin" />
+                          </div>
+                          <div className="flex-1 pt-0.5">
+                            <div className="flex items-center gap-2">
+                              <p className="text-xs text-noir leading-relaxed font-medium">Recherche des documents nécessaires dans vos emails...</p>
+                              <div className="h-4 px-1.5 rounded-full bg-[#EA4335] flex items-center gap-1 flex-shrink-0">
+                                <Mail className="w-2.5 h-2.5 text-blanc" />
+                                <span className="text-[8px] text-blanc font-medium">Gmail</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* Étape 4 - À venir */}
+                        <div className="relative flex items-start gap-3">
+                          <div className="flex-shrink-0 mt-0.5">
+                            <Loader2 className="w-4 h-4 text-gris stroke-[2]" />
+                          </div>
+                          <div className="flex-1 pt-0.5">
+                            <p className="text-xs text-gris/70 leading-relaxed">Calcul de vos économies potentielles...</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
                   
-                  {/* Screen Content */}
-                  <div className="w-full h-full bg-gradient-to-br from-gris-clair to-blanc p-3 pt-7 overflow-y-auto">
-                    {/* Status Bar */}
-                    <div className="flex justify-between items-center mb-3 text-[10px] text-gris">
-                      <span>9:41</span>
-                      <div className="flex gap-0.5">
-                        <div className="w-3 h-1.5 border border-gris rounded-sm" />
-                        <div className="w-0.5 h-0.5 bg-gris rounded-full" />
+                  {/* Input Field - Section distincte avec fond plus foncé */}
+                  <div className="pt-2 px-4 pb-4 bg-zinc-100 rounded-2xl">
+                    {/* Input Row */}
+                    <div className="mb-2">
+                      <div className="relative">
+                        <div className="absolute left-2 top-1/2 -translate-y-1/2 pointer-events-none">
+                          <svg className="w-4 h-4 text-gris" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                          </svg>
+                        </div>
+                        <input
+                          type="text"
+                          placeholder="Ask anything..."
+                          className="w-full bg-zinc-100 rounded-lg pl-8 pr-4 py-3 text-sm text-noir placeholder:text-gris focus:outline-none focus:bg-zinc-100 transition-colors"
+                        />
                       </div>
                     </div>
                     
-                    {/* Header */}
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="w-7 h-7 bg-accent-red rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-blanc text-[10px] font-bold">AZ</span>
+                    {/* Apps Icons and Action Buttons Row */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <button className="h-6 px-2 rounded-full bg-[#EA4335] flex items-center gap-1.5 hover:opacity-80 transition-opacity flex-shrink-0">
+                          <Mail className="w-3 h-3 text-blanc" />
+                          <span className="text-[10px] text-blanc font-medium">Gmail</span>
+                        </button>
+                        <button className="h-6 px-2 rounded-full bg-[#0078D4] flex items-center gap-1.5 hover:opacity-80 transition-opacity flex-shrink-0">
+                          <Mail className="w-3 h-3 text-blanc" />
+                          <span className="text-[10px] text-blanc font-medium">Outlook</span>
+                        </button>
+                        <button className="h-6 px-2 rounded-full bg-[#4285F4] flex items-center gap-1.5 hover:opacity-80 transition-opacity flex-shrink-0">
+                          <Folder className="w-3 h-3 text-blanc" />
+                          <span className="text-[10px] text-blanc font-medium">Drive</span>
+                        </button>
+                        <button className="w-8 h-8 rounded-full bg-gris-clair flex items-center justify-center hover:bg-gris-clair/80 transition-colors flex-shrink-0 border border-gris-clair">
+                          <svg className="w-3.5 h-3.5 text-gris" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                          </svg>
+                        </button>
                       </div>
-                      <div className="flex-1">
-                        <div className="h-1.5 bg-gris-clair rounded w-20 mb-1" />
-                        <div className="h-1 bg-gris-clair rounded w-14" />
+                      <div className="flex items-center gap-2">
+                        <button className="w-8 h-8 flex items-center justify-center text-gris hover:text-noir transition-colors flex-shrink-0">
+                          <Mic className="w-4 h-4" />
+                        </button>
+                        <button className="w-8 h-8 bg-gris hover:bg-gris/80 rounded-full flex items-center justify-center text-blanc transition-colors flex-shrink-0">
+                          <ArrowUp className="w-3.5 h-3.5" />
+                        </button>
                       </div>
-                      <div className="w-5 h-5 bg-gris-clair rounded-full relative">
-                        <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-accent-red rounded-full border border-blanc" />
-                      </div>
-                    </div>
-                    
-                    {/* Notification Alert - Deadline (Plus jamais de deadline ratée) */}
-                    <div className="bg-accent-red/10 border-l-3 border-l-accent-red rounded-lg p-2.5 mb-2">
-                      <div className="flex items-start gap-2">
-                        <div className="w-4 h-4 bg-accent-red rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <span className="text-blanc text-[8px] font-bold">!</span>
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-[9px] font-semibold text-noir mb-0.5 leading-tight">
-                            Alerte Deadline
-                          </p>
-                          <p className="text-[8px] text-gris leading-tight">
-                            Assurance maladie: 30 nov. Approbation requise.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Notification Alert - Économie détectée (Conseils personnalisés) */}
-                    <div className="bg-vert/10 border-l-3 border-l-vert rounded-lg p-2.5 mb-2">
-                      <div className="flex items-start gap-2">
-                        <div className="w-4 h-4 bg-vert rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <span className="text-blanc text-[8px]">💰</span>
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-[9px] font-semibold text-noir mb-0.5 leading-tight">
-                            Économie détectée !
-                          </p>
-                          <p className="text-[8px] text-gris leading-tight">
-                            CHF 400/an sur votre abonnement internet.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Card - Analyse des données (IA intelligente) */}
-                    <div className="bg-blanc rounded-lg p-2.5 shadow-sm mb-2 border border-gris-clair">
-                      <div className="flex items-center gap-2 mb-1.5">
-                        <div className="w-3 h-3 bg-accent-red/20 rounded-full flex items-center justify-center">
-                          <div className="w-1.5 h-1.5 bg-accent-red rounded-full animate-pulse" />
-                        </div>
-                        <p className="text-[9px] font-semibold text-noir flex-1">
-                          Analyse en cours
-                        </p>
-                      </div>
-                      <div className="space-y-1 mb-1.5">
-                        <div className="flex items-center justify-between">
-                          <p className="text-[8px] text-gris">Emails scannés</p>
-                          <p className="text-[8px] font-medium text-noir">47/47</p>
-                        </div>
-                        <div className="w-full h-1 bg-gris-clair rounded-full overflow-hidden">
-                          <div className="h-full bg-vert rounded-full" style={{ width: "100%" }} />
-                        </div>
-                      </div>
-                      <p className="text-[8px] text-gris leading-tight">
-                        3 contrats détectés • 12 documents identifiés
-                      </p>
-                    </div>
-                    
-                    {/* Card - Déclaration d'impôts (Déclaration en 1 clic) */}
-                    <div className="bg-blanc rounded-lg p-2.5 shadow-sm mb-2 border border-gris-clair">
-                      <div className="flex items-center justify-between mb-1.5">
-                        <p className="text-[9px] font-semibold text-noir">Déclaration d&apos;impôts</p>
-                        <span className="text-[8px] bg-vert/20 text-vert px-1.5 py-0.5 rounded font-medium">
-                          Prêt
-                        </span>
-                      </div>
-                      <p className="text-[8px] text-gris leading-tight">
-                        12 documents rassemblés automatiquement
-                      </p>
-                    </div>
-                    
-                    {/* Card - Rappels intelligents */}
-                    <div className="bg-blanc rounded-lg p-2.5 shadow-sm mb-2 border border-gris-clair">
-                      <div className="flex items-center gap-2 mb-1.5">
-                        <div className="w-3 h-3 bg-jaune/20 rounded-full flex items-center justify-center">
-                          <span className="text-[7px]">🔔</span>
-                        </div>
-                        <p className="text-[9px] font-semibold text-noir flex-1">
-                          Rappel abonnement
-                        </p>
-                      </div>
-                      <p className="text-[8px] text-gris leading-tight ml-5">
-                        Netflix - Résiliation possible dans 5 jours
-                      </p>
-                    </div>
-                    
-                    {/* Card - Lettres pré-remplies */}
-                    <div className="bg-blanc rounded-lg p-2.5 shadow-sm border border-gris-clair">
-                      <div className="flex items-center justify-between mb-1">
-                        <p className="text-[9px] font-semibold text-noir">Lettre générée</p>
-                        <div className="w-4 h-4 bg-accent-red/20 rounded flex items-center justify-center">
-                          <span className="text-[7px] text-accent-red">📄</span>
-                        </div>
-                      </div>
-                      <p className="text-[8px] text-gris leading-tight">
-                        Résiliation Swisscom prête à envoyer
-                      </p>
                     </div>
                   </div>
                 </div>
               </div>
-              
-              {/* Decorative glow */}
-              <div className="absolute -inset-4 sm:-inset-6 md:-inset-8 bg-gradient-to-r from-accent-red/20 via-vert/20 to-accent-red/20 rounded-[3rem] blur-2xl -z-10 opacity-50" style={{ bottom: '-2rem' }} />
             </div>
           </div>
+          
+          {/* Decorative glow */}
+          <div className="absolute -inset-4 sm:-inset-6 md:-inset-8 bg-gradient-to-r from-accent-red/20 via-vert/20 to-accent-red/20 rounded-[2rem] blur-2xl -z-10 opacity-50" style={{ bottom: '-2rem' }} />
         </div>
       </div>
     </section>
