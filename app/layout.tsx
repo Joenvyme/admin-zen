@@ -4,6 +4,7 @@ import "./globals.css"
 import { CookieBanner } from "@/components/cookie-banner"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { GoogleAnalytics } from "@/components/google-analytics"
+import { GoogleTagManager, GoogleTagManagerNoscript } from "@/components/google-tag-manager"
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -48,6 +49,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${instrumentSerif.variable} ${dmSans.variable}`}>
       <head>
+        <GoogleTagManager />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -72,6 +74,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <GoogleTagManagerNoscript />
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-accent-red focus:text-blanc focus:px-4 focus:py-2 focus:rounded-md">
           Aller au contenu principal
         </a>
