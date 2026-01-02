@@ -22,6 +22,10 @@ export const metadata: Metadata = {
   title: "AdminZen - Assistant IA pour votre administratif suisse | Économisez CHF 2'400/an",
   description: "AdminZen gère automatiquement vos assurances, abonnements et impôts en Suisse. Économisez jusqu'à CHF 2'400/an et 10h/mois. Essai gratuit.",
   keywords: "assistant administratif suisse, gestion assurance maladie, changement assurance, IA suisse, fintech suisse",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "AdminZen - Oubliez l'administratif suisse",
     description: "L'IA qui gère vos assurances, abonnements et impôts. CHF 2'400 économisés/an.",

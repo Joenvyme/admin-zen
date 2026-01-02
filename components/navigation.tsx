@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
@@ -43,9 +44,16 @@ export function Navigation() {
       <Link
         href="#"
         onClick={(e) => scrollToSection(e, "#")}
-        className="font-display text-xl sm:text-2xl italic text-noir hover:text-accent-red transition-colors"
+        className="flex items-center gap-2 hover:opacity-80 transition-opacity"
       >
-        AdminZen
+        <Image
+          src="/logo.png"
+          alt="AdminZen"
+          width={120}
+          height={40}
+          className="h-6 sm:h-8 w-auto"
+          priority
+        />
       </Link>
       <Button
         asChild
