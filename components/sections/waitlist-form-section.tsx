@@ -15,6 +15,9 @@ import {
 } from "@/components/ui/select"
 import { CANTONS, type WaitlistFormData } from "@/types"
 import { Loader2 } from "lucide-react"
+import { UrgencyCounter } from "@/components/persuasion/urgency-counter"
+import { ProgressBar } from "@/components/persuasion/progress-bar"
+import { usePlaces } from "@/contexts/places-context"
 
 const formSchema = z.object({
   email: z.string().email("Veuillez entrer une adresse email valide"),
@@ -24,6 +27,7 @@ const formSchema = z.object({
 
 export function WaitlistFormSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const { decreasePlaces } = usePlaces()
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error" | null
     message: string
@@ -73,6 +77,8 @@ export function WaitlistFormSection() {
       const result = await response.json()
 
       if (response.ok && result.success) {
+        // Diminue le compteur de places quand quelqu'un s'inscrit
+        decreasePlaces(1)
         setSubmitStatus({
           type: "success",
           message:
@@ -97,12 +103,12 @@ export function WaitlistFormSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 sm:mb-12 md:mb-16">
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic mb-4 sm:mb-6 md:mb-10 text-noir">
-            Réservez votre place maintenant
+            Testez AdminZen gratuitement
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gris max-w-2xl mx-auto mb-8 sm:mb-10 md:mb-12 mt-4 sm:mt-6 px-2">
-            <strong className="text-noir">428+ personnes</strong> ont déjà réservé<br className="sm:hidden" />
+            <strong className="text-noir">428+ personnes</strong> ont déjà testé<br className="sm:hidden" />
             <span className="hidden sm:inline"> · </span>
-            <strong className="text-accent-red">CHF 5/mois garanti à vie</strong><br className="sm:hidden" />
+            <strong className="text-vert">Essai gratuit</strong> · <strong className="text-accent-red">CHF 5/mois garanti à vie</strong><br className="sm:hidden" />
             <span className="hidden sm:inline"> · </span>
             Seulement 50 places restantes
           </p>
@@ -154,6 +160,9 @@ export function WaitlistFormSection() {
                 <p className="text-sm mt-1 text-gris">{errors.canton.message}</p>
               )}
             </div>
+            <div className="mb-2">
+              <ProgressBar />
+            </div>
             <Button
               type="submit"
               disabled={isSubmitting}
@@ -165,7 +174,7 @@ export function WaitlistFormSection() {
                   Envoi en cours...
                 </>
               ) : (
-                "🎉 Réserver ma place maintenant"
+                "🎉 Tester gratuitement"
               )}
             </Button>
             {submitStatus.type && (
@@ -179,8 +188,11 @@ export function WaitlistFormSection() {
                 <p className="whitespace-pre-line">{submitStatus.message}</p>
               </div>
             )}
+            <div className="mt-4 flex justify-center">
+              <UrgencyCounter />
+            </div>
             <p className="text-sm text-center text-gris mt-4">
-              Pas de carte bancaire requise · Vous recevrez un email de confirmation
+              Essai gratuit · Pas de carte bancaire requise · Vous recevrez un email de confirmation
             </p>
           </form>
         </div>

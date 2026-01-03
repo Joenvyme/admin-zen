@@ -52,7 +52,7 @@ export function HeroSection() {
               className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 hover:animate-none w-full sm:w-auto min-h-[48px]"
             >
               <Link href="#waitlist" onClick={(e) => scrollToSection(e, "#waitlist")}>
-                Réserver ma place (CHF 5/mois)
+                Tester gratuitement
               </Link>
             </Button>
             <Button

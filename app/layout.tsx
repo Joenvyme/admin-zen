@@ -5,6 +5,10 @@ import { CookieBanner } from "@/components/cookie-banner"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { GoogleAnalytics } from "@/components/google-analytics"
 import { GoogleTagManager, GoogleTagManagerNoscript } from "@/components/google-tag-manager"
+import { ExitIntentPopup } from "@/components/persuasion/exit-intent-popup"
+import { SocialProofNotifications } from "@/components/persuasion/social-proof-notifications"
+import { ToastNotifications } from "@/components/persuasion/toast-notifications"
+import { PlacesProvider } from "@/contexts/places-context"
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -78,10 +82,15 @@ export default function RootLayout({
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-accent-red focus:text-blanc focus:px-4 focus:py-2 focus:rounded-md">
           Aller au contenu principal
         </a>
-        <GoogleAnalytics />
-        <ScrollProgress />
-        {children}
-        <CookieBanner />
+        <PlacesProvider>
+          <GoogleAnalytics />
+          <ScrollProgress />
+          <ExitIntentPopup />
+          <SocialProofNotifications />
+          <ToastNotifications />
+          {children}
+          <CookieBanner />
+        </PlacesProvider>
       </body>
     </html>
   )

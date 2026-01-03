@@ -62,8 +62,8 @@ export function Navigation() {
         className="border-noir hover:bg-[#2A2A2A] hover:text-blanc text-xs sm:text-sm px-3 sm:px-4 py-2 sm:py-2.5"
       >
         <Link href="#waitlist" onClick={(e) => scrollToSection(e, "#waitlist")}>
-          <span className="hidden sm:inline">Accès anticipé</span>
-          <span className="sm:hidden">Accès</span>
+          <span className="hidden sm:inline">Tester gratuitement</span>
+          <span className="sm:hidden">Tester</span>
         </Link>
       </Button>
     </nav>
