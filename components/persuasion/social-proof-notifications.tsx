@@ -58,7 +58,7 @@ export function SocialProofNotifications() {
               <span className="text-noir font-medium">
                 {notification.name} de {notification.city}
               </span>
-              <span className="text-gris text-xs">vient de s'inscrire il y a {notification.time}</span>
+              <span className="text-gris text-xs">vient de s&apos;inscrire il y a {notification.time}</span>
             </div>
           </motion.div>
         ))}

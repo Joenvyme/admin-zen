@@ -79,8 +79,8 @@ export function ExitIntentPopup() {
                 <strong className="text-vert">CHF 5/mois garanti à vie</strong>
               </p>
               <p className="text-gris mb-6 text-sm sm:text-base">
-                Testez AdminZen <strong className="text-vert">gratuitement</strong> et économisez jusqu'à{" "}
-                <strong className="text-noir">CHF 2'400/an</strong>
+                Testez AdminZen <strong className="text-vert">gratuitement</strong> et économisez jusqu&apos;à{" "}
+                <strong className="text-noir">CHF 2&apos;400/an</strong>
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button
