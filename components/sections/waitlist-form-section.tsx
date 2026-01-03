@@ -120,6 +120,7 @@ export function WaitlistFormSection() {
                 {...register("email")}
                 type="email"
                 placeholder="Votre email"
+                autoComplete="email"
                 className="bg-blanc text-noir border-2 border-gris hover:border-gris/60 focus:border-accent-red focus:ring-2 focus:ring-accent-red/20 h-12 placeholder:text-gris placeholder:opacity-70"
                 disabled={isSubmitting}
               />
@@ -132,6 +133,7 @@ export function WaitlistFormSection() {
                 {...register("prenom")}
                 type="text"
                 placeholder="Prénom"
+                autoComplete="given-name"
                 className="bg-blanc text-noir border-2 border-gris hover:border-gris/60 focus:border-accent-red focus:ring-2 focus:ring-accent-red/20 h-12 placeholder:text-gris placeholder:opacity-70"
                 disabled={isSubmitting}
               />

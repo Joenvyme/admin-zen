@@ -62,6 +62,50 @@
   background: #D63031;
 }
 
+/* Désactiver les couleurs par défaut du navigateur (autofill, focus, etc.) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus,
+select:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #FAFAFA inset !important;
+  -webkit-text-fill-color: #1A1A1A !important;
+  background-color: #FAFAFA !important;
+  background-clip: content-box !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Désactiver le highlight jaune sur mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* Désactiver les couleurs de sélection par défaut */
+::selection {
+  background-color: rgba(214, 48, 49, 0.2);
+  color: #1A1A1A;
+}
+
+::-moz-selection {
+  background-color: rgba(214, 48, 49, 0.2);
+  color: #1A1A1A;
+}
+
 /* Utility classes */
 .sr-only {
   position: absolute;
