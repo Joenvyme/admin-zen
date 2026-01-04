@@ -5,7 +5,13 @@ import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { useTranslations } from 'next-intl'
 
-function Step({ step, index }: { step: typeof steps[0]; index: number }) {
+interface StepData {
+  number: number
+  title: string
+  description: string
+}
+
+function Step({ step, index }: { step: StepData; index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
