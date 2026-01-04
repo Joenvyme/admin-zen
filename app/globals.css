@@ -87,10 +87,13 @@ input,
 select,
 textarea {
   background-color: #FAFAFA !important;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
   border-color: #6B6B6B !important;
+  font-size: 16px !important; /* Empêche le zoom automatique sur iOS */
+  transform: scale(1) !important;
+  -webkit-transform: scale(1) !important;
 }
 
 input:focus,
@@ -189,6 +192,62 @@ button:focus,
   outline-offset: 2px !important;
   border-color: #D63031 !important;
   -webkit-tap-highlight-color: transparent !important;
+  -webkit-box-shadow: 0 0 0 2px rgba(214, 48, 49, 0.2) !important;
+  box-shadow: 0 0 0 2px rgba(214, 48, 49, 0.2) !important;
+}
+
+/* Supprimer toutes les bordures jaunes système iOS/Android */
+input::-webkit-input-placeholder,
+select::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #6B6B6B !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #FAFAFA inset !important;
+  -webkit-text-fill-color: #1A1A1A !important;
+  border-color: #6B6B6B !important;
+  -webkit-border-image: none !important;
+  border-image: none !important;
+}
+
+input:-webkit-autofill:focus {
+  border-color: #D63031 !important;
+  -webkit-box-shadow: 0 0 0 30px #FAFAFA inset, 0 0 0 2px rgba(214, 48, 49, 0.2) !important;
+}
+
+/* Empêcher le zoom sur focus iOS */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+select,
+textarea {
+  font-size: 16px !important;
+  transform: scale(1) !important;
+  -webkit-transform: scale(1) !important;
+}
+
+/* Supprimer les styles de validation HTML5 qui créent des bordures jaunes */
+input:required:invalid,
+select:required:invalid,
+textarea:required:invalid {
+  border-color: #6B6B6B !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+
+input:required:invalid:focus,
+select:required:invalid:focus,
+textarea:required:invalid:focus {
+  border-color: #D63031 !important;
+  box-shadow: 0 0 0 2px rgba(214, 48, 49, 0.2) !important;
+  -webkit-box-shadow: 0 0 0 2px rgba(214, 48, 49, 0.2) !important;
 }
 
 /* Désactiver les couleurs de sélection par défaut */

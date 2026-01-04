@@ -55,6 +55,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       icon: "/favicon.png",
       apple: "/favicon.png",
     },
+    viewport: {
+      width: "device-width",
+      initialScale: 1,
+      maximumScale: 1,
+      userScalable: false,
+    },
     openGraph: {
       title: baseMetadata.title || "AdminZen",
       description: baseMetadata.description || "",
