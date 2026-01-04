@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { Link } from '@/i18n/routing'
+import LinkStandard from "next/link"
 import { getBlogPost, getAllBlogPosts } from "@/lib/blog-posts"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
@@ -195,13 +196,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           <div className="mt-12 sm:mt-16 p-6 sm:p-8 bg-gris-clair/30 rounded-lg border-2 border-gris-clair">
             <h2 className="font-display text-2xl sm:text-3xl italic text-noir mb-4">
-              Simplifiez vos impôts avec AdminZen
+              {t('simplifyTaxesTitle')}
             </h2>
             <p className="text-gris mb-6">
-              Ne perdez plus de temps à rassembler vos documents et à chercher les déductions. AdminZen automatise tout pour vous.
+              {t('simplifyTaxesDescription')}
             </p>
             <Button asChild size="lg" className="bg-accent-red hover:bg-accent-red-hover">
-              <Link href="/#waitlist">Tester gratuitement</Link>
+              <LinkStandard href="/#waitlist">{t('testAdminZenFree')}</LinkStandard>
             </Button>
           </div>
         </div>
