@@ -5,9 +5,12 @@ import Link from "next/link"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import { Check, Loader2, ArrowUp, Mic, Mail, Folder, Globe } from "lucide-react"
+import { useTranslations } from 'next-intl'
 
 export function HeroSection() {
   const [waitlistCount, setWaitlistCount] = useState(428)
+  const t = useTranslations('hero')
+  const tChat = useTranslations('chat')
 
   useEffect(() => {
     // Simulate dynamic count updates
@@ -36,14 +39,13 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-0 items-center relative">
           <div className="max-w-2xl lg:pr-8 relative z-20">
           <span className="inline-block text-xs sm:text-sm md:text-base uppercase tracking-wider text-accent-red font-bold mb-4 sm:mb-6 md:mb-10 animate-fade-in-up">
-            L&apos;Assistant IA Suisse 🇨🇭
+            {t('badge')}
           </span>
           <h1 className="font-display text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] sm:leading-tight mb-4 sm:mb-6 md:mb-10 animate-fade-in-up [animation-delay:200ms]">
-            Oubliez l&apos;administratif. <em className="italic text-accent-red">Vivez.</em>
+            {t('title')} <em className="italic text-accent-red">{t('titleHighlight')}</em>
           </h1>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gris max-w-2xl mb-8 sm:mb-12 md:mb-16 lg:mb-20 leading-relaxed font-extralight animate-fade-in-up [animation-delay:400ms]" style={{ fontWeight: 200 }}>
-            Gestion automatique de vos assurances, abonnements et impôts. 
-            <strong className="font-medium text-noir"> Économisez CHF 2&apos;400/an</strong> sans effort.
+            {t('description')} <strong className="font-medium text-noir">{t('savings')}</strong> {t('descriptionSuffix')}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12 animate-fade-in-up [animation-delay:600ms]">
             <Button
@@ -52,7 +54,7 @@ export function HeroSection() {
               className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 hover:animate-none w-full sm:w-auto min-h-[48px]"
             >
               <Link href="#waitlist" onClick={(e) => scrollToSection(e, "#waitlist")}>
-                Tester gratuitement
+                {t('ctaPrimary')}
               </Link>
             </Button>
             <Button
@@ -62,7 +64,7 @@ export function HeroSection() {
               className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 w-full sm:w-auto min-h-[48px]"
             >
               <Link href="#comment" onClick={(e) => scrollToSection(e, "#comment")}>
-                Comment ça marche ?
+                {t('ctaSecondary')}
               </Link>
             </Button>
           </div>
@@ -91,7 +93,7 @@ export function HeroSection() {
               ))}
             </div>
             <p className="text-gris text-xs sm:text-sm md:text-base">
-              <strong className="text-noir font-bold">{waitlistCount}+</strong> personnes ont déjà réservé
+              <strong className="text-noir font-bold">{waitlistCount}+</strong> {t('socialProof', { count: waitlistCount }).replace(`${waitlistCount}+`, '').trim()}
             </p>
           </div>
           </div>
@@ -134,10 +136,10 @@ export function HeroSection() {
                     {/* Welcome Message - Message reçu (IA) */}
                     <div className="mb-6">
                       <h3 className="text-lg font-semibold text-noir mb-1">
-                        Bonjour !
+                        {tChat('greeting')}
                       </h3>
                       <p className="text-sm text-gris leading-relaxed">
-                        Comment puis-je vous aider aujourd&apos;hui ?
+                        {tChat('help')}
                       </p>
                     </div>
                     
@@ -145,7 +147,7 @@ export function HeroSection() {
                     <div className="mb-6 flex justify-end">
                       <div className="bg-accent-red/10 rounded-lg px-3 py-2 max-w-[85%]">
                         <p className="text-sm text-noir leading-relaxed">
-                          J&apos;aimerais préparer ma déclaration d&apos;impôts
+                          {tChat('userMessage')}
                         </p>
                       </div>
                     </div>
@@ -162,7 +164,7 @@ export function HeroSection() {
                             <Check className="w-4 h-4 text-vert stroke-[2]" />
                           </div>
                           <div className="flex-1 pt-0.5">
-                            <p className="text-xs text-vert leading-relaxed">Analyse de vos documents fiscaux...</p>
+                            <p className="text-xs text-vert leading-relaxed">{tChat('thinking.analyzing')}</p>
                           </div>
                         </div>
                         
@@ -173,7 +175,7 @@ export function HeroSection() {
                           </div>
                           <div className="flex-1 pt-0.5">
                             <div className="flex items-center gap-2">
-                              <p className="text-xs text-noir leading-relaxed font-medium">Identification des déductions possibles...</p>
+                              <p className="text-xs text-noir leading-relaxed font-medium">{tChat('thinking.identifying')}</p>
                               <div className="h-4 px-1.5 rounded-full bg-gris flex items-center gap-1 flex-shrink-0">
                                 <Globe className="w-2.5 h-2.5 text-blanc" />
                                 <span className="text-[8px] text-blanc font-medium">Web</span>
@@ -189,7 +191,7 @@ export function HeroSection() {
                           </div>
                           <div className="flex-1 pt-0.5">
                             <div className="flex items-center gap-2">
-                              <p className="text-xs text-noir leading-relaxed font-medium">Recherche des documents nécessaires dans vos emails...</p>
+                              <p className="text-xs text-noir leading-relaxed font-medium">{tChat('thinking.searching')}</p>
                               <div className="h-4 px-1.5 rounded-full bg-[#EA4335] flex items-center gap-1 flex-shrink-0">
                                 <Mail className="w-2.5 h-2.5 text-blanc" />
                                 <span className="text-[8px] text-blanc font-medium">Gmail</span>
@@ -204,7 +206,7 @@ export function HeroSection() {
                             <Loader2 className="w-4 h-4 text-gris stroke-[2]" />
                           </div>
                           <div className="flex-1 pt-0.5">
-                            <p className="text-xs text-gris/70 leading-relaxed">Calcul de vos économies potentielles...</p>
+                            <p className="text-xs text-gris/70 leading-relaxed">{tChat('thinking.calculating')}</p>
                           </div>
                         </div>
                       </div>
@@ -224,7 +226,7 @@ export function HeroSection() {
                         </div>
                         <input
                           type="text"
-                          placeholder="Ask anything..."
+                          placeholder={tChat('placeholder')}
                           className="w-full bg-zinc-100 rounded-lg pl-8 pr-4 py-3 text-sm text-noir placeholder:text-gris focus:outline-none focus:bg-zinc-100 transition-colors"
                         />
                       </div>

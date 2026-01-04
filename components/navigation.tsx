@@ -1,13 +1,18 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import Link from "next/link"
+import { useTranslations } from 'next-intl'
+import { Link, usePathname } from '@/i18n/routing'
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { LanguageSwitcher } from "./language-switcher"
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
+  const t = useTranslations('navigation')
+  const tCommon = useTranslations('common')
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,8 +47,7 @@ export function Navigation() {
       )}
     >
       <Link
-        href="#"
-        onClick={(e) => scrollToSection(e, "#")}
+        href="/"
         className="flex items-center gap-2 hover:opacity-80 transition-opacity"
       >
         <Image
@@ -55,17 +59,26 @@ export function Navigation() {
           priority
         />
       </Link>
-      <Button
-        asChild
-        variant="outline"
-        size="sm"
-        className="border-noir hover:bg-[#2A2A2A] hover:text-blanc text-xs sm:text-sm px-3 sm:px-4 py-2 sm:py-2.5"
-      >
-        <Link href="#waitlist" onClick={(e) => scrollToSection(e, "#waitlist")}>
-          <span className="hidden sm:inline">Tester gratuitement</span>
-          <span className="sm:hidden">Tester</span>
+      <div className="flex items-center gap-3 sm:gap-4">
+        <Link
+          href="/blog"
+          className="text-gris hover:text-accent-red transition-colors text-sm sm:text-base font-medium hidden sm:inline"
+        >
+          {t('blog')}
         </Link>
-      </Button>
+        <LanguageSwitcher />
+        <Button
+          asChild
+          variant="outline"
+          size="sm"
+          className="border-noir hover:bg-[#2A2A2A] hover:text-blanc text-xs sm:text-sm px-3 sm:px-4 py-2 sm:py-2.5"
+        >
+          <Link href="#waitlist" onClick={(e) => scrollToSection(e, "#waitlist")}>
+            <span className="hidden sm:inline">{t('testFree')}</span>
+            <span className="sm:hidden">{tCommon('test')}</span>
+          </Link>
+        </Button>
+      </div>
     </nav>
   )
 }

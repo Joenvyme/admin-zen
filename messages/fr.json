@@ -1,0 +1,208 @@
+{
+  "common": {
+    "testFree": "Tester gratuitement",
+    "test": "Tester",
+    "blog": "Blog",
+    "skipToContent": "Aller au contenu principal"
+  },
+  "hero": {
+    "badge": "L'Assistant IA Fiscal Suisse 🇨🇭",
+    "title": "Vos impôts gérés par IA.",
+    "titleHighlight": "Enfin.",
+    "description": "Déclaration d'impôts automatique. Documents rassemblés, déductions identifiées, calcul optimisé.",
+    "savings": "Économisez jusqu'à CHF 1'200/an",
+    "descriptionSuffix": "sur vos impôts.",
+    "ctaPrimary": "Tester gratuitement",
+    "ctaSecondary": "Comment ça marche ?",
+    "socialProof": "{count}+ personnes ont déjà réservé"
+  },
+  "navigation": {
+    "blog": "Blog",
+    "testFree": "Tester gratuitement"
+  },
+  "footer": {
+    "copyright": "© 2025 AdminZen · Made with ❤️ in Switzerland",
+    "privacy": "Politique de confidentialité",
+    "terms": "CGU",
+    "contact": "Contact",
+    "blog": "Blog",
+    "hosted": "Hébergé en Suisse 🇨🇭 · Conforme RGPD/LPD"
+  },
+  "pricing": {
+    "title": "Prix de lancement : CHF 5/mois",
+    "subtitle": "Rejoignez les 428 early adopters · {guarantee}",
+    "guarantee": "Prix garanti à vie",
+    "earlyAccess": "Early Access",
+    "badge": "Prix lancement -80%",
+    "price": "5",
+    "priceDecimal": ".00",
+    "priceOld": "CHF 24.90",
+    "pricePerMonth": "par mois",
+    "guaranteeBadge": "Prix garanti à vie",
+    "lessThanCoffee": "· Moins qu'un café par jour",
+    "features": {
+      "savings": "Économisez jusqu'à CHF 1'200/an sur vos impôts",
+      "alerts": "Alertes 10 jours avant chaque deadline fiscale",
+      "taxes": "Déclaration d'impôts préparée automatiquement",
+      "deductions": "Toutes les déductions identifiées par canton",
+      "documents": "Documents fiscaux rassemblés automatiquement",
+      "support": "Support prioritaire 🇨🇭",
+      "guarantee": "Garantie satisfait ou remboursé 60 jours"
+    },
+    "placesReserved": "{count} places réservées",
+    "placesLeft": "{count} restantes",
+    "placesPercentage": "{percentage}% des places déjà prises",
+    "cta": "Tester gratuitement",
+    "urgency": "Seulement {count} places restantes"
+  },
+  "waitlist": {
+    "title": "Testez AdminZen gratuitement",
+    "subtitlePart1": "{count}+ personnes ont déjà testé",
+    "subtitlePart2": "Seulement 50 places restantes",
+    "freeTrial": "Essai gratuit",
+    "price": "CHF 5/mois garanti à vie",
+    "email": "Votre email",
+    "firstName": "Prénom",
+    "canton": "Canton de résidence",
+    "submit": "🎉 Tester gratuitement",
+    "submitting": "Envoi en cours...",
+    "success": "🎉 Félicitations ! Vous êtes sur la liste d'attente.\n\nVous recevrez un email de confirmation dans quelques minutes avec tous les détails.",
+    "error": "Une erreur est survenue. Veuillez réessayer.",
+    "footer": "Essai gratuit · Pas de carte bancaire requise · Vous recevrez un email de confirmation",
+    "errors": {
+      "email": "Veuillez entrer une adresse email valide",
+      "prenom": "Le prénom doit contenir au moins 2 caractères",
+      "canton": "Veuillez sélectionner votre canton"
+    }
+  },
+  "chat": {
+    "greeting": "Bonjour !",
+    "help": "Comment puis-je vous aider aujourd'hui ?",
+    "userMessage": "J'aimerais préparer ma déclaration d'impôts",
+    "thinking": {
+      "analyzing": "Analyse de vos documents fiscaux...",
+      "identifying": "Identification des déductions possibles...",
+      "searching": "Recherche des documents nécessaires dans vos emails...",
+      "calculating": "Calcul de vos économies potentielles..."
+    },
+    "placeholder": "Ask anything..."
+  },
+  "painPoints": {
+    "title": "Vos impôts simplifiés par l'IA",
+    "subtitle": "Découvrez comment AdminZen transforme votre déclaration d'impôts",
+    "beforeLabel": "Sans AdminZen",
+    "afterLabel": "Avec AdminZen",
+    "before": {
+      "taxes": "Vous procrastinez jusqu'à la dernière seconde. Stress et erreurs.",
+      "documents": "Documents fiscaux éparpillés dans vos emails. Heures perdues à chercher.",
+      "deductions": "Déductions fiscales manquées. Vous payez plus d'impôts que nécessaire.",
+      "deadline": "Deadline du 30 novembre oubliée. Amende à payer chaque année."
+    },
+    "after": {
+      "taxes": "Déclaration préparée automatiquement par l'IA. En 1 clic.",
+      "deductions": "Toutes les déductions identifiées selon votre canton. Optimisation maximale.",
+      "reminders": "Rappels automatiques 10 jours avant chaque deadline. Plus jamais d'amende.",
+      "documents": "Tous vos documents fiscaux rassemblés automatiquement depuis vos emails."
+    }
+  },
+  "blog": {
+    "title": "Blog AdminZen",
+    "subtitle": "Guides pratiques et conseils pour simplifier vos impôts et optimiser votre situation fiscale en Suisse",
+    "min": "min",
+    "readArticle": "Lire l'article"
+  },
+  "exitIntent": {
+    "title": "Attendez ! Ne partez pas encore",
+    "message1": "{count}+ personnes ont déjà réservé leur place à {price}",
+    "message2": "Testez AdminZen {free} et économisez jusqu'à {savings}",
+    "cta": "Tester gratuitement",
+    "decline": "Non merci"
+  },
+  "progressBar": {
+    "placesReserved": "{count} places réservées",
+    "placesLeft": "{count} restantes",
+    "percentage": "{percentage}% des places déjà prises"
+  },
+  "testimonials": {
+    "title": "Ils économisent déjà des centaines sur leurs impôts",
+    "subtitle": "Découvrez comment nos utilisateurs ont simplifié leur déclaration d'impôts",
+    "items": {
+      "sophie": {
+        "name": "Sophie M.",
+        "location": "Genève",
+        "text": "CHF 800 économisés cette année. Déclaration préparée en 5 minutes. Inestimable !"
+      },
+      "marc": {
+        "name": "Marc L.",
+        "location": "Zurich",
+        "text": "Fini le stress des impôts. L'IA détecte toutes les déductions. Je recommande à 100%."
+      },
+      "julie": {
+        "name": "Julie B.",
+        "location": "Lausanne",
+        "text": "Tous mes documents fiscaux rassemblés automatiquement. Plus besoin de chercher !"
+      },
+      "thomas": {
+        "name": "Thomas R.",
+        "location": "Berne",
+        "text": "Enfin un outil qui comprend la fiscalité suisse. Déclaration optimisée automatiquement."
+      },
+      "camille": {
+        "name": "Camille D.",
+        "location": "Bâle",
+        "text": "Déclaration en 1 clic. L'IA a trouvé des déductions que je ne connaissais pas."
+      },
+      "david": {
+        "name": "David K.",
+        "location": "Fribourg",
+        "text": "CHF 1'200 économisés sur mon 3e pilier. L'IA a optimisé toutes mes déductions."
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "Comment AdminZen gère vos impôts",
+    "subtitle": "3 étapes. Zéro effort de votre part.",
+    "step1": {
+      "title": "Connectez vos emails (2 clics)",
+      "description": "L'IA scanne automatiquement vos emails pour trouver tous vos documents fiscaux (fiches de salaire, attestations 3a, factures déductibles). Chiffrement bout en bout, données hébergées en Suisse."
+    },
+    "step2": {
+      "title": "L'IA analyse et optimise",
+      "description": "Identification automatique de toutes les déductions selon votre canton. Calcul optimisé de votre impôt. Détection des erreurs et opportunités d'économies."
+    },
+    "step3": {
+      "title": "Validez en 1 clic",
+      "description": "Votre déclaration est prête. Vérifiez, validez, envoyez. Ou laissez l'IA tout gérer automatiquement. Rappels avant chaque deadline."
+    }
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "items": {
+      "security": {
+        "question": "Mes données fiscales sont-elles en sécurité ?",
+        "answer": "Oui. Chiffrement bout en bout (AES-256), données hébergées en Suisse (Zurich), 100% conforme RGPD/LPD. Accès uniquement aux emails contenant des documents fiscaux, jamais à vos emails personnels."
+      },
+      "savings": {
+        "question": "Comment économiser CHF 1'200/an sur mes impôts ?",
+        "answer": "L'IA identifie toutes les déductions possibles (3e pilier, frais professionnels, frais de garde, etc.) selon votre canton. Optimisation du calcul pour minimiser votre charge fiscale. Moyenne constatée : CHF 500-1'200/an d'économies."
+      },
+      "difference": {
+        "question": "Différence avec un comptable ou TaxMe ?",
+        "answer": "Comptable = cher et lent. TaxMe = vous remplissez tout manuellement. AdminZen = automatique : documents rassemblés, déductions identifiées, déclaration préparée. De 5h de travail à 1 clic."
+      },
+      "complexity": {
+        "question": "Je suis nul en fiscalité, c'est pour moi ?",
+        "answer": "EXACTEMENT pour vous ! Conçu pour ceux qui détestent les impôts. Si \"déduction 3a\", \"frais professionnels\" ou \"deadline du 30 novembre\" vous donnent des sueurs froides, on est fait pour s'entendre."
+      },
+      "cantons": {
+        "question": "Ça marche dans tous les cantons ?",
+        "answer": "Oui ! AdminZen fonctionne dans les 26 cantons suisses. L'IA connaît les spécificités fiscales de chaque canton (taux, déductions, formulaires) et s'adapte automatiquement à votre situation."
+      },
+      "afterWaitlist": {
+        "question": "Que se passe-t-il après la liste d'attente ?",
+        "answer": "Nous lançons la version bêta en mars 2026 avec les 500 premiers inscrits. Vous recevrez un email avec vos accès, un onboarding personnalisé (15 min), et votre tarif réduit à CHF 5/mois sera garanti À VIE."
+      }
+    }
+  }
+}
+

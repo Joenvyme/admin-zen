@@ -5,10 +5,14 @@ import { motion, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { useTranslations } from 'next-intl'
 
 export function ExitIntentPopup() {
   const [showPopup, setShowPopup] = useState(false)
   const [hasShown, setHasShown] = useState(false)
+  const t = useTranslations('exitIntent')
+  const tWaitlist = useTranslations('waitlist')
+  const tHero = useTranslations('hero')
 
   useEffect(() => {
     // Vérifie si on a déjà montré le popup dans cette session
@@ -72,29 +76,27 @@ export function ExitIntentPopup() {
             </button>
             <div className="text-center">
               <h3 className="font-display text-2xl sm:text-3xl italic text-noir mb-3">
-                Attendez ! Ne partez pas encore
+                {t('title')}
               </h3>
               <p className="text-gris mb-4 text-sm sm:text-base">
-                <strong className="text-accent-red">428+ personnes</strong> ont déjà réservé leur place à{" "}
-                <strong className="text-vert">CHF 5/mois garanti à vie</strong>
+                <strong className="text-accent-red">428+</strong> {t('message1').split('{count}+')[1].split('{price}')[0]} <strong className="text-vert">{tWaitlist('price')}</strong>
               </p>
               <p className="text-gris mb-6 text-sm sm:text-base">
-                Testez AdminZen <strong className="text-vert">gratuitement</strong> et économisez jusqu&apos;à{" "}
-                <strong className="text-noir">CHF 2&apos;400/an</strong>
+                {t('message2').split('{free}')[0]} <strong className="text-vert">{tWaitlist('freeTrial')}</strong> {t('message2').split('{free}')[1].split('{savings}')[0]} <strong className="text-noir">{tHero('savings')}</strong>
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button
                   onClick={scrollToWaitlist}
                   className="bg-accent-red hover:bg-accent-red-hover text-blanc flex-1"
                 >
-                  Tester gratuitement
+                  {t('cta')}
                 </Button>
                 <Button
                   onClick={() => setShowPopup(false)}
                   variant="outline"
                   className="flex-1"
                 >
-                  Non merci
+                  {t('decline')}
                 </Button>
               </div>
             </div>

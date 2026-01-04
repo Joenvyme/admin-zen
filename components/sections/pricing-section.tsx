@@ -8,29 +8,31 @@ import { UrgencyCounter } from "@/components/persuasion/urgency-counter"
 import { OfferTimer } from "@/components/persuasion/offer-timer"
 import { ProgressBar } from "@/components/persuasion/progress-bar"
 import { usePlaces } from "@/contexts/places-context"
-
-const features = [
-  "Économisez jusqu'à CHF 2'400/an",
-  "Alertes 10 jours avant chaque deadline",
-  "Déclaration d'impôts en 1 clic",
-  "Lettres de résiliation automatiques",
-  "Analyse illimitée de vos documents",
-  "Support prioritaire 🇨🇭",
-  "Garantie satisfait ou remboursé 60 jours",
-]
+import { useTranslations } from 'next-intl'
 
 export function PricingSection() {
   const { placesLeft } = usePlaces()
+  const t = useTranslations('pricing')
+  
+  const features = [
+    t('features.savings'),
+    t('features.alerts'),
+    t('features.taxes'),
+    t('features.deductions'),
+    t('features.documents'),
+    t('features.support'),
+    t('features.guarantee'),
+  ]
 
   return (
     <section className="bg-blanc py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 sm:mb-12 md:mb-16 lg:mb-20">
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic mb-4 sm:mb-6 md:mb-10 text-noir">
-            Prix de lancement : CHF 5/mois
+            {t('title')}
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gris max-w-2xl mx-auto mt-4 sm:mt-6">
-            Rejoignez les 428 early adopters · <strong className="text-noir">Prix garanti à vie</strong>
+            {t('subtitle').split('{guarantee}')[0]} <strong className="text-noir">{t('guarantee')}</strong>
           </p>
           <div className="mt-6 max-w-md mx-auto">
             <OfferTimer />
@@ -41,14 +43,14 @@ export function PricingSection() {
             {/* Badge en haut à droite */}
             <div className="absolute top-4 right-4 z-10">
               <Badge className="bg-vert text-blanc border-0 px-3 py-1 text-xs font-bold">
-                Prix lancement -80%
+                {t('badge')}
               </Badge>
             </div>
             
             <CardHeader className="p-6 sm:p-8 pb-4">
               <div className="mb-4">
                 <CardTitle className="font-display text-xl sm:text-2xl italic text-noir">
-                  Early Access
+                  {t('earlyAccess')}
                 </CardTitle>
               </div>
               
@@ -57,19 +59,19 @@ export function PricingSection() {
                 <div className="flex items-baseline gap-3 mb-2">
                   <div className="flex items-baseline">
                     <span className="text-lg sm:text-xl md:text-2xl text-gris font-medium mr-1">CHF</span>
-                    <span className="font-display text-5xl sm:text-6xl md:text-7xl italic text-noir leading-none">5</span>
-                    <span className="text-2xl sm:text-3xl md:text-4xl text-gris">.00</span>
+                    <span className="font-display text-5xl sm:text-6xl md:text-7xl italic text-noir leading-none">{t('price')}</span>
+                    <span className="text-2xl sm:text-3xl md:text-4xl text-gris">{t('priceDecimal')}</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-lg sm:text-xl text-gris line-through">CHF 24.90</span>
-                  <span className="text-xs text-gris">par mois</span>
+                  <span className="text-lg sm:text-xl text-gris line-through">{t('priceOld')}</span>
+                  <span className="text-xs text-gris">{t('pricePerMonth')}</span>
                 </div>
                 <div className="flex items-center gap-2 flex-wrap">
                   <Badge variant="outline" className="border-vert text-vert bg-vert/5 text-xs">
-                    Prix garanti à vie
+                    {t('guaranteeBadge')}
                   </Badge>
-                  <span className="text-xs text-gris">· Moins qu&apos;un café par jour</span>
+                  <span className="text-xs text-gris">{t('lessThanCoffee')}</span>
                 </div>
               </div>
             </CardHeader>
@@ -89,7 +91,7 @@ export function PricingSection() {
                 asChild
                 className="w-full bg-accent-red hover:bg-accent-red-hover text-base sm:text-lg py-5 sm:py-6 min-h-[48px]"
               >
-                <Link href="#waitlist">Tester gratuitement</Link>
+                <Link href="#waitlist">{t('cta')}</Link>
               </Button>
               <div className="mt-4 flex justify-center">
                 <UrgencyCounter />

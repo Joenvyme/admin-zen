@@ -3,27 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
-
-const steps = [
-  {
-    number: 1,
-    title: "Connectez vos emails (2 clics)",
-    description:
-      "Détection automatique de vos assurances, abonnements et documents fiscaux. Chiffrement bout en bout, données hébergées en Suisse. Conforme RGPD/LPD.",
-  },
-  {
-    number: 2,
-    title: "L'IA surveille et compare 24/7",
-    description:
-      "Scan du marché suisse en continu. Détection des opportunités d'économies et alertes 10 jours avant chaque deadline. Plus jamais de 30 novembre raté.",
-  },
-  {
-    number: 3,
-    title: "Validez en 1 clic ou mode automatique",
-    description:
-      "Meilleures options avec calculs précis. Lettres de résiliation pré-remplies. Ou mode pilote automatique : on gère tout pour vous.",
-  },
-]
+import { useTranslations } from 'next-intl'
 
 function Step({ step, index }: { step: typeof steps[0]; index: number }) {
   return (
@@ -77,6 +57,26 @@ function Step({ step, index }: { step: typeof steps[0]; index: number }) {
 }
 
 export function HowItWorksSection() {
+  const t = useTranslations('howItWorks')
+  
+  const steps = [
+    {
+      number: 1,
+      title: t('step1.title'),
+      description: t('step1.description'),
+    },
+    {
+      number: 2,
+      title: t('step2.title'),
+      description: t('step2.description'),
+    },
+    {
+      number: 3,
+      title: t('step3.title'),
+      description: t('step3.description'),
+    },
+  ]
+
   return (
     <section id="comment" className="bg-blanc py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full">
       <div className="max-w-7xl mx-auto">
@@ -94,7 +94,7 @@ export function HowItWorksSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Comment AdminZen vous simplifie la vie
+            {t('title')}
           </motion.h2>
           <motion.p 
             className="text-base sm:text-lg md:text-xl text-gris max-w-2xl mx-auto mt-4 sm:mt-6"
@@ -103,7 +103,7 @@ export function HowItWorksSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            3 étapes. Zéro effort de votre part.
+            {t('subtitle')}
           </motion.p>
         </motion.div>
         <div className="max-w-3xl mx-auto">

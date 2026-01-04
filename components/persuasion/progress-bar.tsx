@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { usePlaces } from "@/contexts/places-context"
+import { useTranslations } from 'next-intl'
 
 interface ProgressBarProps {
   totalPlaces?: number
@@ -15,6 +16,7 @@ export function ProgressBar({ totalPlaces: propTotalPlaces, placesLeft: propPlac
   const [animatedProgress, setAnimatedProgress] = useState(0)
   const placesTaken = totalPlaces - placesLeft
   const percentage = (placesTaken / totalPlaces) * 100
+  const t = useTranslations('progressBar')
 
   useEffect(() => {
     // Animation de la barre de progression
@@ -29,10 +31,10 @@ export function ProgressBar({ totalPlaces: propTotalPlaces, placesLeft: propPlac
     <div className="w-full">
       <div className="flex justify-between items-center mb-2">
         <span className="text-xs sm:text-sm text-gris">
-          <strong className="text-vert">{placesTaken}</strong> places réservées
+          <strong className="text-vert">{placesTaken}</strong> {t('placesReserved', { count: placesTaken }).replace(`${placesTaken}`, '').trim()}
         </span>
         <span className="text-xs sm:text-sm text-gris">
-          <strong className="text-accent-red">{placesLeft}</strong> restantes
+          <strong className="text-accent-red">{placesLeft}</strong> {t('placesLeft', { count: placesLeft }).replace(`${placesLeft}`, '').trim()}
         </span>
       </div>
       <div className="w-full bg-gris-clair rounded-full h-1.5 sm:h-2 overflow-hidden">
@@ -42,7 +44,7 @@ export function ProgressBar({ totalPlaces: propTotalPlaces, placesLeft: propPlac
         />
       </div>
       <p className="text-xs text-center text-gris mt-2">
-        {percentage.toFixed(0)}% des places déjà prises
+        {t('percentage', { percentage: percentage.toFixed(0) })}
       </p>
     </div>
   )

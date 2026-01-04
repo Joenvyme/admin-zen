@@ -18,14 +18,18 @@ import { Loader2 } from "lucide-react"
 import { UrgencyCounter } from "@/components/persuasion/urgency-counter"
 import { ProgressBar } from "@/components/persuasion/progress-bar"
 import { usePlaces } from "@/contexts/places-context"
-
-const formSchema = z.object({
-  email: z.string().email("Veuillez entrer une adresse email valide"),
-  prenom: z.string().min(2, "Le prénom doit contenir au moins 2 caractères"),
-  canton: z.string().min(1, "Veuillez sélectionner votre canton"),
-})
+import { useTranslations } from 'next-intl'
 
 export function WaitlistFormSection() {
+  const t = useTranslations('waitlist')
+  const tErrors = useTranslations('waitlist.errors')
+  
+  const formSchema = z.object({
+    email: z.string().email(tErrors('email')),
+    prenom: z.string().min(2, tErrors('prenom')),
+    canton: z.string().min(1, tErrors('canton')),
+  })
+
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { decreasePlaces } = usePlaces()
   const [submitStatus, setSubmitStatus] = useState<{
@@ -81,17 +85,16 @@ export function WaitlistFormSection() {
         decreasePlaces(1)
         setSubmitStatus({
           type: "success",
-          message:
-            "🎉 Félicitations ! Vous êtes sur la liste d'attente.\n\nVous recevrez un email de confirmation dans quelques minutes avec tous les détails.",
+          message: t('success'),
         })
         reset()
       } else {
-        throw new Error(result.error || "Une erreur est survenue")
+        throw new Error(result.error || t('error'))
       }
     } catch (error) {
       setSubmitStatus({
         type: "error",
-        message: error instanceof Error ? error.message : "Une erreur est survenue. Veuillez réessayer.",
+        message: error instanceof Error ? error.message : t('error'),
       })
     } finally {
       setIsSubmitting(false)
@@ -103,14 +106,14 @@ export function WaitlistFormSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 sm:mb-12 md:mb-16">
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic mb-4 sm:mb-6 md:mb-10 text-noir">
-            Testez AdminZen gratuitement
+            {t('title')}
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gris max-w-2xl mx-auto mb-8 sm:mb-10 md:mb-12 mt-4 sm:mt-6 px-2">
-            <strong className="text-noir">428+ personnes</strong> ont déjà testé<br className="sm:hidden" />
+            <strong className="text-noir">{t('subtitlePart1', { count: 428 })}</strong><br className="sm:hidden" />
             <span className="hidden sm:inline"> · </span>
-            <strong className="text-vert">Essai gratuit</strong> · <strong className="text-accent-red">CHF 5/mois garanti à vie</strong><br className="sm:hidden" />
+            <strong className="text-vert">{t('freeTrial')}</strong> · <strong className="text-accent-red">{t('price')}</strong><br className="sm:hidden" />
             <span className="hidden sm:inline"> · </span>
-            Seulement 50 places restantes
+            {t('subtitlePart2')}
           </p>
         </div>
         <div className="max-w-md mx-auto">
@@ -119,7 +122,7 @@ export function WaitlistFormSection() {
               <Input
                 {...register("email")}
                 type="email"
-                placeholder="Votre email"
+                placeholder={t('email')}
                 autoComplete="email"
                 className="bg-blanc text-noir border-2 border-gris hover:border-gris/60 focus:border-accent-red focus:ring-2 focus:ring-accent-red/20 h-12 placeholder:text-gris placeholder:opacity-70"
                 disabled={isSubmitting}
@@ -132,7 +135,7 @@ export function WaitlistFormSection() {
               <Input
                 {...register("prenom")}
                 type="text"
-                placeholder="Prénom"
+                placeholder={t('firstName')}
                 autoComplete="given-name"
                 className="bg-blanc text-noir border-2 border-gris hover:border-gris/60 focus:border-accent-red focus:ring-2 focus:ring-accent-red/20 h-12 placeholder:text-gris placeholder:opacity-70"
                 disabled={isSubmitting}
@@ -148,7 +151,7 @@ export function WaitlistFormSection() {
                 disabled={isSubmitting}
               >
                 <SelectTrigger className="bg-blanc text-noir border-2 border-gris hover:border-gris/60 focus:border-accent-red focus:ring-2 focus:ring-accent-red/20 h-12">
-                  <SelectValue placeholder="Canton de résidence" />
+                  <SelectValue placeholder={t('canton')} />
                 </SelectTrigger>
                 <SelectContent>
                   {CANTONS.map((canton) => (
@@ -173,10 +176,10 @@ export function WaitlistFormSection() {
               {isSubmitting ? (
                 <>
                   <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                  Envoi en cours...
+                  {t('submitting')}
                 </>
               ) : (
-                "🎉 Tester gratuitement"
+                t('submit')
               )}
             </Button>
             {submitStatus.type && (
@@ -194,7 +197,7 @@ export function WaitlistFormSection() {
               <UrgencyCounter />
             </div>
             <p className="text-sm text-center text-gris mt-4">
-              Essai gratuit · Pas de carte bancaire requise · Vous recevrez un email de confirmation
+              {t('footer')}
             </p>
           </form>
         </div>

@@ -7,48 +7,7 @@ import { useEffect, useRef, useState } from "react"
 import { X, Check } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
-
-const painPoints = [
-  {
-    title: "Impôts : vous procrastinez jusqu'à la dernière seconde.",
-  },
-  {
-    title: "Documents fiscaux éparpillés dans vos emails. Vous perdez des heures à chercher.",
-  },
-  {
-    title: "Déductions fiscales manquées. Vous payez plus d'impôts que nécessaire.",
-  },
-  {
-    title: "Deadline du 30 novembre oubliée. CHF 400 perdus chaque année.",
-  },
-  {
-    title: "Abonnements inutilisés qui continuent de vous coûter.",
-  },
-  {
-    title: "Assurances trop chères. Vous n'avez pas le temps de comparer.",
-  },
-]
-
-const advantages = [
-  {
-    title: "Impôts gérés par IA. Vos documents rassemblés automatiquement.",
-  },
-  {
-    title: "Déductions fiscales identifiées automatiquement selon votre canton.",
-  },
-  {
-    title: "Rappels automatiques pour ne jamais rater une deadline.",
-  },
-  {
-    title: "Résiliation automatique de vos abonnements inutilisés.",
-  },
-  {
-    title: "Économies sur vos assurances. L'IA compare et vous propose le meilleur.",
-  },
-  {
-    title: "Tout centralisé. Plus besoin de chercher dans vos emails.",
-  },
-]
+import { useTranslations } from 'next-intl'
 
 function ItemCard({ 
   title, 
@@ -99,17 +58,32 @@ function ItemCard({
 }
 
 export function PainPointsSection() {
-  const [showAdvantages, setShowAdvantages] = useState(false)
+  const [showAdvantages, setShowAdvantages] = useState(true)
+  const t = useTranslations('painPoints')
+  
+  const painPoints = [
+    { title: t('before.taxes') },
+    { title: t('before.documents') },
+    { title: t('before.deductions') },
+    { title: t('before.deadline') },
+  ]
+
+  const advantages = [
+    { title: t('after.taxes') },
+    { title: t('after.deductions') },
+    { title: t('after.reminders') },
+    { title: t('after.documents') },
+  ]
 
   return (
     <section className="bg-blanc py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic mb-4 sm:mb-6 md:mb-10">
-            AdminZen vous simplifie la vie
+            {t('title')}
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gris max-w-2xl mx-auto mt-4 sm:mt-6 mb-8">
-            Découvrez comment AdminZen transforme votre quotidien administratif
+            {t('subtitle')}
           </p>
           
           {/* Toggle */}
@@ -121,7 +95,7 @@ export function PainPointsSection() {
                 !showAdvantages ? "text-noir" : "text-gris"
               )}
             >
-              Avant
+              {t('beforeLabel')}
             </Label>
             <Switch
               id="toggle-avant-apres"
@@ -135,7 +109,7 @@ export function PainPointsSection() {
                 showAdvantages ? "text-noir" : "text-gris"
               )}
             >
-              Après
+              {t('afterLabel')}
             </Label>
           </div>
         </div>

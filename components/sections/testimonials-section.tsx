@@ -4,57 +4,21 @@ import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import { Star } from "lucide-react"
+import { useTranslations } from 'next-intl'
 
-const testimonials = [
-  {
-    name: "Sophie M.",
-    location: "Genève",
-    text: "CHF 800 économisés cette année. Alertée 10 jours avant la deadline. Inestimable !",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face",
-    rating: 5,
-  },
-  {
-    name: "Marc L.",
-    location: "Zurich",
-    text: "Fini le stress des impôts. L'IA détecte toutes les déductions. Je recommande à 100%.",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
-    rating: 5,
-  },
-  {
-    name: "Julie B.",
-    location: "Lausanne",
-    text: "3 abonnements oubliés annulés. CHF 45/mois récupérés automatiquement.",
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face",
-    rating: 5,
-  },
-  {
-    name: "Thomas R.",
-    location: "Berne",
-    text: "Enfin un outil qui comprend l'administratif suisse. Ça change la vie !",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face",
-    rating: 5,
-  },
-  {
-    name: "Camille D.",
-    location: "Bâle",
-    text: "Mode pilote automatique : je n'ai plus à penser à rien. Tout est géré.",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face",
-    rating: 5,
-  },
-  {
-    name: "David K.",
-    location: "Fribourg",
-    text: "CHF 1'200 économisés sur mon 3e pilier. L'IA a trouvé des déductions inconnues.",
-    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face",
-    rating: 5,
-  },
-]
+interface Testimonial {
+  name: string
+  location: string
+  text: string
+  avatar: string
+  rating: number
+}
 
 function TestimonialCard({
   testimonial,
   index,
 }: {
-  testimonial: typeof testimonials[0]
+  testimonial: Testimonial
   index: number
 }) {
   const [isVisible, setIsVisible] = useState(false)
@@ -125,15 +89,62 @@ function TestimonialCard({
 }
 
 export function TestimonialsSection() {
+  const t = useTranslations('testimonials')
+  
+  const testimonials = [
+    {
+      name: t('items.sophie.name'),
+      location: t('items.sophie.location'),
+      text: t('items.sophie.text'),
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face",
+      rating: 5,
+    },
+    {
+      name: t('items.marc.name'),
+      location: t('items.marc.location'),
+      text: t('items.marc.text'),
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
+      rating: 5,
+    },
+    {
+      name: t('items.julie.name'),
+      location: t('items.julie.location'),
+      text: t('items.julie.text'),
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face",
+      rating: 5,
+    },
+    {
+      name: t('items.thomas.name'),
+      location: t('items.thomas.location'),
+      text: t('items.thomas.text'),
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face",
+      rating: 5,
+    },
+    {
+      name: t('items.camille.name'),
+      location: t('items.camille.location'),
+      text: t('items.camille.text'),
+      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face",
+      rating: 5,
+    },
+    {
+      name: t('items.david.name'),
+      location: t('items.david.location'),
+      text: t('items.david.text'),
+      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face",
+      rating: 5,
+    },
+  ]
+
   return (
     <section className="bg-blanc py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic mb-4 sm:mb-6 md:mb-10 text-noir">
-            Ils économisent déjà des milliers
+            {t('title')}
           </h2>
           <p className="text-gris text-sm sm:text-base md:text-lg max-w-2xl mx-auto mt-4 sm:mt-6">
-            Découvrez comment nos utilisateurs ont simplifié leur vie administrative
+            {t('subtitle')}
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">

@@ -1,12 +1,17 @@
-import Link from "next/link"
+"use client"
+
+import { Link } from '@/i18n/routing'
 import Image from "next/image"
+import { useTranslations } from 'next-intl'
 
 export function Footer() {
+  const t = useTranslations('footer')
+  
   return (
     <footer className="bg-gris-clair/30 text-gris py-10 sm:py-12 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full border-t border-gris-clair/50">
       <div className="max-w-7xl mx-auto text-center">
         <div className="mb-4 sm:mb-6 flex justify-center">
-          <Link href="#" className="hover:opacity-80 transition-opacity">
+          <Link href="/" className="hover:opacity-80 transition-opacity">
             <Image
               src="/logo.png"
               alt="AdminZen"
@@ -16,22 +21,26 @@ export function Footer() {
             />
           </Link>
         </div>
-        <p className="mb-3 sm:mb-4 text-gris/60 text-sm sm:text-base">&copy; 2025 AdminZen · Made with ❤️ in Switzerland</p>
+        <p className="mb-3 sm:mb-4 text-gris/60 text-sm sm:text-base">{t('copyright')}</p>
         <p className="mb-2 text-xs sm:text-sm">
+          <Link href="/blog" className="text-gris/60 hover:text-accent-red transition-colors">
+            {t('blog')}
+          </Link>
+          {" · "}
           <Link href="#privacy" className="text-gris/60 hover:text-accent-red transition-colors">
-            Politique de confidentialité
+            {t('privacy')}
           </Link>
           {" · "}
           <Link href="#cgu" className="text-gris/60 hover:text-accent-red transition-colors">
-            CGU
+            {t('terms')}
           </Link>
           {" · "}
           <Link href="#contact" className="text-gris/60 hover:text-accent-red transition-colors">
-            Contact
+            {t('contact')}
           </Link>
         </p>
         <p className="text-xs sm:text-sm mt-2 text-gris/50">
-          Hébergé en Suisse 🇨🇭 · Conforme RGPD/LPD
+          {t('hosted')}
         </p>
       </div>
     </footer>

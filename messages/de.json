@@ -1,0 +1,208 @@
+{
+  "common": {
+    "testFree": "Kostenlos testen",
+    "test": "Testen",
+    "blog": "Blog",
+    "skipToContent": "Zum Hauptinhalt"
+  },
+  "hero": {
+    "badge": "Der Schweizer KI-Steuerassistent 🇨🇭",
+    "title": "Ihre Steuern von KI verwaltet.",
+    "titleHighlight": "Endlich.",
+    "description": "Automatische Steuererklärung. Dokumente gesammelt, Abzüge identifiziert, Berechnung optimiert.",
+    "savings": "Sparen Sie bis zu CHF 1'200/Jahr",
+    "descriptionSuffix": "bei Ihren Steuern.",
+    "ctaPrimary": "Kostenlos testen",
+    "ctaSecondary": "Wie funktioniert es?",
+    "socialProof": "{count}+ Personen haben bereits reserviert"
+  },
+  "navigation": {
+    "blog": "Blog",
+    "testFree": "Kostenlos testen"
+  },
+  "footer": {
+    "copyright": "© 2025 AdminZen · Made with ❤️ in Switzerland",
+    "privacy": "Datenschutzerklärung",
+    "terms": "AGB",
+    "contact": "Kontakt",
+    "blog": "Blog",
+    "hosted": "Gehostet in der Schweiz 🇨🇭 · DSGVO/LDSG-konform"
+  },
+  "pricing": {
+    "title": "Einführungspreis: CHF 5/Monat",
+    "subtitle": "Schließen Sie sich den 428 Early Adopters an · {guarantee}",
+    "guarantee": "Preis lebenslang garantiert",
+    "earlyAccess": "Early Access",
+    "badge": "Einführungspreis -80%",
+    "price": "5",
+    "priceDecimal": ".00",
+    "priceOld": "CHF 24.90",
+    "pricePerMonth": "pro Monat",
+    "guaranteeBadge": "Preis lebenslang garantiert",
+    "lessThanCoffee": "· Weniger als ein Kaffee pro Tag",
+    "features": {
+      "savings": "Sparen Sie bis zu CHF 1'200/Jahr bei Ihren Steuern",
+      "alerts": "Benachrichtigungen 10 Tage vor jeder Steuerdeadline",
+      "taxes": "Steuererklärung automatisch vorbereitet",
+      "deductions": "Alle Abzüge nach Kanton identifiziert",
+      "documents": "Steuerdokumente automatisch gesammelt",
+      "support": "Prioritärer Support 🇨🇭",
+      "guarantee": "60-Tage Geld-zurück-Garantie"
+    },
+    "placesReserved": "{count} Plätze reserviert",
+    "placesLeft": "{count} übrig",
+    "placesPercentage": "{percentage}% der Plätze bereits vergeben",
+    "cta": "Kostenlos testen",
+    "urgency": "Nur noch {count} Plätze verfügbar"
+  },
+  "waitlist": {
+    "title": "Testen Sie AdminZen kostenlos",
+    "subtitlePart1": "{count}+ Personen haben bereits getestet",
+    "subtitlePart2": "Nur noch 50 Plätze verfügbar",
+    "freeTrial": "Kostenlose Testversion",
+    "price": "CHF 5/Monat lebenslang garantiert",
+    "email": "Ihre E-Mail",
+    "firstName": "Vorname",
+    "canton": "Wohnkanton",
+    "submit": "🎉 Kostenlos testen",
+    "submitting": "Wird gesendet...",
+    "success": "🎉 Herzlichen Glückwunsch! Sie sind auf der Warteliste.\n\nSie erhalten in wenigen Minuten eine Bestätigungs-E-Mail mit allen Details.",
+    "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "footer": "Kostenlose Testversion · Keine Kreditkarte erforderlich · Sie erhalten eine Bestätigungs-E-Mail",
+    "errors": {
+      "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "prenom": "Der Vorname muss mindestens 2 Zeichen enthalten",
+      "canton": "Bitte wählen Sie Ihren Kanton aus"
+    }
+  },
+  "chat": {
+    "greeting": "Guten Tag !",
+    "help": "Wie kann ich Ihnen heute helfen?",
+    "userMessage": "Ich möchte meine Steuererklärung vorbereiten",
+    "thinking": {
+      "analyzing": "Analyse Ihrer Steuerdokumente...",
+      "identifying": "Identifizierung möglicher Abzüge...",
+      "searching": "Suche nach erforderlichen Dokumenten in Ihren E-Mails...",
+      "calculating": "Berechnung Ihrer potenziellen Einsparungen..."
+    },
+    "placeholder": "Fragen Sie alles..."
+  },
+  "painPoints": {
+    "title": "Ihre Steuern von der KI vereinfacht",
+    "subtitle": "Entdecken Sie, wie AdminZen Ihre Steuererklärung transformiert",
+    "beforeLabel": "Ohne AdminZen",
+    "afterLabel": "Mit AdminZen",
+    "before": {
+      "taxes": "Sie schieben es bis zur letzten Sekunde auf. Stress und Fehler.",
+      "documents": "Steuerdokumente verstreut in Ihren E-Mails. Stunden bei der Suche verloren.",
+      "deductions": "Verpasste Steuerabzüge. Sie zahlen mehr Steuern als nötig.",
+      "deadline": "Deadline vom 30. November verpasst. Strafe jedes Jahr zu zahlen."
+    },
+    "after": {
+      "taxes": "Steuererklärung automatisch von der KI vorbereitet. Mit einem Klick.",
+      "deductions": "Alle Abzüge nach Ihrem Kanton identifiziert. Maximale Optimierung.",
+      "reminders": "Automatische Erinnerungen 10 Tage vor jeder Deadline. Nie wieder eine Strafe.",
+      "documents": "Alle Ihre Steuerdokumente automatisch aus Ihren E-Mails gesammelt."
+    }
+  },
+  "blog": {
+    "title": "Blog AdminZen",
+    "subtitle": "Praktische Leitfäden und Tipps zur Vereinfachung Ihrer Steuern und Optimierung Ihrer Steuersituation in der Schweiz",
+    "min": "Min",
+    "readArticle": "Artikel lesen"
+  },
+  "exitIntent": {
+    "title": "Warten Sie! Gehen Sie noch nicht",
+    "message1": "{count}+ Personen haben bereits ihren Platz zu {price} reserviert",
+    "message2": "Testen Sie AdminZen {free} und sparen Sie bis zu {savings}",
+    "cta": "Kostenlos testen",
+    "decline": "Nein danke"
+  },
+  "progressBar": {
+    "placesReserved": "{count} Plätze reserviert",
+    "placesLeft": "{count} übrig",
+    "percentage": "{percentage}% der Plätze bereits vergeben"
+  },
+  "testimonials": {
+    "title": "Sie sparen bereits Hunderte bei ihren Steuern",
+    "subtitle": "Entdecken Sie, wie unsere Nutzer ihre Steuererklärung vereinfacht haben",
+    "items": {
+      "sophie": {
+        "name": "Sophie M.",
+        "location": "Genf",
+        "text": "CHF 800 dieses Jahr gespart. Steuererklärung in 5 Minuten vorbereitet. Unbezahlbar !"
+      },
+      "marc": {
+        "name": "Marc L.",
+        "location": "Zürich",
+        "text": "Schluss mit dem Steuerstress. Die KI erkennt alle Abzüge. Ich empfehle es zu 100%."
+      },
+      "julie": {
+        "name": "Julie B.",
+        "location": "Lausanne",
+        "text": "Alle meine Steuerdokumente automatisch gesammelt. Keine Suche mehr nötig !"
+      },
+      "thomas": {
+        "name": "Thomas R.",
+        "location": "Bern",
+        "text": "Endlich ein Tool, das die Schweizer Steuergesetze versteht. Steuererklärung automatisch optimiert."
+      },
+      "camille": {
+        "name": "Camille D.",
+        "location": "Basel",
+        "text": "Steuererklärung mit einem Klick. Die KI hat Abzüge gefunden, die ich nicht kannte."
+      },
+      "david": {
+        "name": "David K.",
+        "location": "Freiburg",
+        "text": "CHF 1'200 bei meiner 3. Säule gespart. Die KI hat alle meine Abzüge optimiert."
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "Wie AdminZen Ihre Steuern verwaltet",
+    "subtitle": "3 Schritte. Kein Aufwand Ihrerseits.",
+    "step1": {
+      "title": "Verbinden Sie Ihre E-Mails (2 Klicks)",
+      "description": "Die KI scannt automatisch Ihre E-Mails, um alle Ihre Steuerdokumente zu finden (Lohnabrechnungen, 3a-Bescheinigungen, abzugsfähige Rechnungen). Ende-zu-Ende-Verschlüsselung, Daten in der Schweiz gehostet."
+    },
+    "step2": {
+      "title": "Die KI analysiert und optimiert",
+      "description": "Automatische Identifizierung aller Abzüge nach Ihrem Kanton. Optimierte Berechnung Ihrer Steuern. Erkennung von Fehlern und Einsparmöglichkeiten."
+    },
+    "step3": {
+      "title": "Bestätigen Sie mit einem Klick",
+      "description": "Ihre Steuererklärung ist bereit. Überprüfen, bestätigen, senden. Oder lassen Sie die KI alles automatisch verwalten. Erinnerungen vor jeder Deadline."
+    }
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "items": {
+      "security": {
+        "question": "Sind meine Steuerdaten sicher?",
+        "answer": "Ja. Ende-zu-Ende-Verschlüsselung (AES-256), Daten in der Schweiz (Zürich) gehostet, 100% DSGVO/LDSG-konform. Zugriff nur auf E-Mails mit Steuerdokumenten, niemals auf Ihre persönlichen E-Mails."
+      },
+      "savings": {
+        "question": "Wie spare ich CHF 1'200/Jahr bei meinen Steuern?",
+        "answer": "Die KI identifiziert alle möglichen Abzüge (3. Säule, Berufskosten, Betreuungskosten usw.) nach Ihrem Kanton. Optimierung der Berechnung zur Minimierung Ihrer Steuerlast. Durchschnittlich beobachtet: CHF 500-1'200/Jahr Einsparungen."
+      },
+      "difference": {
+        "question": "Unterschied zu einem Steuerberater oder TaxMe?",
+        "answer": "Steuerberater = teuer und langsam. TaxMe = Sie füllen alles manuell aus. AdminZen = automatisch: Dokumente gesammelt, Abzüge identifiziert, Steuererklärung vorbereitet. Von 5 Stunden Arbeit zu einem Klick."
+      },
+      "complexity": {
+        "question": "Ich bin schlecht in Steuern, ist das für mich?",
+        "answer": "GENAU für Sie! Entwickelt für diejenigen, die Steuern hassen. Wenn \"3a-Abzug\", \"Berufskosten\" oder \"Deadline 30. November\" Ihnen kalte Schweißausbrüche bereiten, verstehen wir uns."
+      },
+      "cantons": {
+        "question": "Funktioniert es in allen Kantonen?",
+        "answer": "Ja! AdminZen funktioniert in allen 26 Schweizer Kantonen. Die KI kennt die steuerlichen Besonderheiten jedes Kantons (Sätze, Abzüge, Formulare) und passt sich automatisch an Ihre Situation an."
+      },
+      "afterWaitlist": {
+        "question": "Was passiert nach der Warteliste?",
+        "answer": "Wir starten die Beta-Version im März 2026 mit den ersten 500 Anmeldungen. Sie erhalten eine E-Mail mit Ihren Zugängen, ein personalisiertes Onboarding (15 Min.) und Ihr reduzierter Preis von CHF 5/Monat wird LEBENSLANG garantiert."
+      }
+    }
+  }
+}
+
