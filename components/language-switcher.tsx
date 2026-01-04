@@ -2,6 +2,7 @@
 
 import { useLocale } from 'next-intl'
 import { usePathname, useRouter } from '@/i18n/routing'
+import { routing } from '@/i18n/routing'
 import {
   Select,
   SelectContent,
@@ -22,7 +23,17 @@ export function LanguageSwitcher() {
   const pathname = usePathname()
 
   const handleLanguageChange = (newLocale: string) => {
-    router.replace(pathname, { locale: newLocale })
+    // Handle dynamic routes by extracting params from current URL
+    if (pathname === '/blog/[slug]') {
+      const currentPath = window.location.pathname
+      const pathSegments = currentPath.split('/').filter(Boolean)
+      const localeIndex = routing.locales.indexOf(pathSegments[0] as any)
+      const slug = pathSegments[localeIndex >= 0 ? 2 : 1] || pathSegments[1]
+      router.push({ pathname: '/blog/[slug]', params: { slug } } as any, { locale: newLocale })
+    } else {
+      // For static routes, use router.push with locale
+      router.push(pathname as any, { locale: newLocale })
+    }
   }
 
   return (
