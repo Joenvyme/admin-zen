@@ -38,12 +38,12 @@ export function LanguageSwitcher() {
 
   return (
     <Select value={locale} onValueChange={handleLanguageChange}>
-      <SelectTrigger className="w-[70px] h-9 bg-blanc/90 backdrop-blur-sm border-2 border-gris-clair hover:border-gris text-sm font-medium">
+      <SelectTrigger className="w-[70px] h-9 bg-blanc border-2 border-gris-clair hover:border-gris focus:border-accent-red focus:ring-2 focus:ring-accent-red/20 text-sm font-medium">
         <SelectValue />
       </SelectTrigger>
-      <SelectContent className="z-[1001]">
+      <SelectContent className="z-[1001] bg-blanc">
         {languages.map((lang) => (
-          <SelectItem key={lang.value} value={lang.value}>
+          <SelectItem key={lang.value} value={lang.value} className="bg-blanc focus:bg-gris-clair">
             {lang.label}
           </SelectItem>
         ))}

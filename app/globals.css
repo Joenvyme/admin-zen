@@ -84,9 +84,54 @@ textarea:-webkit-autofill:active {
 
 input:focus,
 select:focus,
-textarea:focus {
+textarea:focus,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
   outline: none !important;
   -webkit-tap-highlight-color: transparent;
+  background-color: #FAFAFA !important;
+  border-color: #D63031 !important;
+}
+
+/* Forcer le blanc pour tous les champs de formulaire */
+input,
+select,
+textarea {
+  background-color: #FAFAFA !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  background-color: #FAFAFA !important;
+}
+
+/* Forcer le blanc pour les composants Select de Radix UI */
+[data-radix-select-trigger],
+[data-radix-select-content],
+[data-radix-select-viewport] {
+  background-color: #FAFAFA !important;
+}
+
+[data-radix-select-trigger]:focus,
+[data-radix-select-trigger]:focus-visible {
+  background-color: #FAFAFA !important;
+  border-color: #D63031 !important;
+  outline: none !important;
+}
+
+[data-radix-select-content] {
+  background-color: #FAFAFA !important;
+}
+
+[data-radix-select-item]:focus,
+[data-radix-select-item][data-highlighted] {
+  background-color: #F7F7F2 !important;
+  outline: none !important;
 }
 
 /* Désactiver le highlight jaune sur mobile */
