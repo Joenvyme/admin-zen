@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import LinkStandard from "next/link"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import { Check, Loader2, ArrowUp, Mic, Mail, Folder, Globe } from "lucide-react"
@@ -53,9 +53,9 @@ export function HeroSection() {
               size="lg"
               className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 hover:animate-none w-full sm:w-auto min-h-[48px]"
             >
-              <Link href="#waitlist" onClick={(e) => scrollToSection(e, "#waitlist")}>
+              <LinkStandard href="#waitlist" onClick={(e) => scrollToSection(e, "#waitlist")}>
                 {t('ctaPrimary')}
-              </Link>
+              </LinkStandard>
             </Button>
             <Button
               asChild
@@ -63,9 +63,9 @@ export function HeroSection() {
               size="lg"
               className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 w-full sm:w-auto min-h-[48px]"
             >
-              <Link href="#comment" onClick={(e) => scrollToSection(e, "#comment")}>
+              <LinkStandard href="#comment" onClick={(e) => scrollToSection(e, "#comment")}>
                 {t('ctaSecondary')}
-              </Link>
+              </LinkStandard>
             </Button>
           </div>
           <div className="flex items-center gap-3 sm:gap-4 flex-wrap animate-fade-in-up [animation-delay:800ms]">

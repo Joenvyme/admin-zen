@@ -1,6 +1,7 @@
 "use client"
 
 import { Link } from '@/i18n/routing'
+import LinkStandard from "next/link"
 import Image from "next/image"
 import { useTranslations } from 'next-intl'
 
@@ -27,17 +28,17 @@ export function Footer() {
             {t('blog')}
           </Link>
           {" · "}
-          <Link href="#privacy" className="text-gris/60 hover:text-accent-red transition-colors">
+          <LinkStandard href="#privacy" className="text-gris/60 hover:text-accent-red transition-colors">
             {t('privacy')}
-          </Link>
+          </LinkStandard>
           {" · "}
-          <Link href="#cgu" className="text-gris/60 hover:text-accent-red transition-colors">
+          <LinkStandard href="#cgu" className="text-gris/60 hover:text-accent-red transition-colors">
             {t('terms')}
-          </Link>
+          </LinkStandard>
           {" · "}
-          <Link href="#contact" className="text-gris/60 hover:text-accent-red transition-colors">
+          <LinkStandard href="#contact" className="text-gris/60 hover:text-accent-red transition-colors">
             {t('contact')}
-          </Link>
+          </LinkStandard>
         </p>
         <p className="text-xs sm:text-sm mt-2 text-gris/50">
           {t('hosted')}

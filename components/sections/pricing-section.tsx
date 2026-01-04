@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import Link from "next/link"
+import LinkStandard from "next/link"
 import { UrgencyCounter } from "@/components/persuasion/urgency-counter"
 import { OfferTimer } from "@/components/persuasion/offer-timer"
 import { ProgressBar } from "@/components/persuasion/progress-bar"
@@ -91,7 +91,7 @@ export function PricingSection() {
                 asChild
                 className="w-full bg-accent-red hover:bg-accent-red-hover text-base sm:text-lg py-5 sm:py-6 min-h-[48px]"
               >
-                <Link href="#waitlist">{t('cta')}</Link>
+                <LinkStandard href="#waitlist">{t('cta')}</LinkStandard>
               </Button>
               <div className="mt-4 flex justify-center">
                 <UrgencyCounter />
