@@ -133,32 +133,89 @@ textarea:invalid:focus {
 /* Forcer le blanc pour les composants Select de Radix UI */
 [data-radix-select-trigger],
 [data-radix-select-content],
-[data-radix-select-viewport] {
+[data-radix-select-viewport],
+[data-radix-select-item] {
   background-color: #FAFAFA !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  border-color: #6B6B6B !important;
+  -webkit-border-image: none !important;
+  border-image: none !important;
 }
 
 [data-radix-select-trigger] {
   border-color: #6B6B6B !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 [data-radix-select-trigger]:focus,
 [data-radix-select-trigger]:focus-visible,
-[data-radix-select-trigger]:active {
+[data-radix-select-trigger]:active,
+[data-radix-select-trigger][data-state="open"],
+[data-radix-select-trigger][data-state="closed"] {
   background-color: #FAFAFA !important;
   border-color: #D63031 !important;
   outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
   box-shadow: 0 0 0 2px rgba(214, 48, 49, 0.2) !important;
   -webkit-box-shadow: 0 0 0 2px rgba(214, 48, 49, 0.2) !important;
+  -webkit-border-image: none !important;
+  border-image: none !important;
 }
 
 [data-radix-select-content] {
   background-color: #FAFAFA !important;
+  border-color: #E8E8E8 !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-radix-select-content]:focus,
+[data-radix-select-content]:focus-visible {
+  outline: none !important;
+  border-color: #E8E8E8 !important;
+}
+
+[data-radix-select-item] {
+  border: none !important;
+  -webkit-border-image: none !important;
+  border-image: none !important;
 }
 
 [data-radix-select-item]:focus,
-[data-radix-select-item][data-highlighted] {
+[data-radix-select-item][data-highlighted],
+[data-radix-select-item][data-state="checked"] {
   background-color: #F7F7F2 !important;
   outline: none !important;
+  border: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  -webkit-border-image: none !important;
+  border-image: none !important;
+}
+
+/* Supprimer toutes les bordures jaunes sur les boutons et éléments interactifs */
+button[data-radix-select-trigger],
+button[data-radix-select-trigger]:focus,
+button[data-radix-select-trigger]:active,
+button[data-radix-select-trigger]:hover {
+  border-color: #6B6B6B !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  -webkit-border-image: none !important;
+  border-image: none !important;
+}
+
+button[data-radix-select-trigger]:focus,
+button[data-radix-select-trigger]:focus-visible {
+  border-color: #D63031 !important;
+  box-shadow: 0 0 0 2px rgba(214, 48, 49, 0.2) !important;
+  -webkit-box-shadow: 0 0 0 2px rgba(214, 48, 49, 0.2) !important;
 }
 
 /* Désactiver le highlight jaune sur mobile */
